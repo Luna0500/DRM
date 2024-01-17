@@ -2,7 +2,7 @@
   {
     "id": "xy12-1",
     "name": "Venusaur-EX",
-    "supertype": "Pokémon",
+    "supertype": "PokÃ©mon",
     "subtypes": [
       "Basic",
       "EX"
@@ -15,7 +15,7 @@
       "M Venusaur-EX"
     ],
     "rules": [
-      "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+      "PokÃ©mon-EX rule: When a PokÃ©mon-EX has been Knocked Out, your opponent takes 2 Prize cards."
     ],
     "attacks": [
       {
@@ -27,7 +27,7 @@
         ],
         "convertedEnergyCost": 3,
         "damage": "60",
-        "text": "Your opponent's Active Pokémon is now Poisoned."
+        "text": "Your opponent's Active PokÃ©mon is now Poisoned."
       },
       {
         "name": "Jungle Hammer",
@@ -39,13 +39,13 @@
         ],
         "convertedEnergyCost": 4,
         "damage": "90",
-        "text": "Heal 30 damage from this Pokémon."
+        "text": "Heal 30 damage from this PokÃ©mon."
       }
     ],
     "weaknesses": [
       {
         "type": "Fire",
-        "value": "×2"
+        "value": "Ã—2"
       }
     ],
     "retreatCost": [
@@ -73,7 +73,7 @@
   {
     "id": "xy12-2",
     "name": "M Venusaur-EX",
-    "supertype": "Pokémon",
+    "supertype": "PokÃ©mon",
     "subtypes": [
       "MEGA",
       "EX"
@@ -84,8 +84,8 @@
     ],
     "evolvesFrom": "Venusaur-EX",
     "rules": [
-      "Mega Evolution rule: When 1 of your Pokémon becomes a Mega Evolution Pokémon, your turn ends.",
-      "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+      "Mega Evolution rule: When 1 of your PokÃ©mon becomes a Mega Evolution PokÃ©mon, your turn ends.",
+      "PokÃ©mon-EX rule: When a PokÃ©mon-EX has been Knocked Out, your opponent takes 2 Prize cards."
     ],
     "attacks": [
       {
@@ -98,13 +98,13 @@
         ],
         "convertedEnergyCost": 4,
         "damage": "120",
-        "text": "Your opponent's Active Pokémon is now Paralyzed and Poisoned."
+        "text": "Your opponent's Active PokÃ©mon is now Paralyzed and Poisoned."
       }
     ],
     "weaknesses": [
       {
         "type": "Fire",
-        "value": "×2"
+        "value": "Ã—2"
       }
     ],
     "retreatCost": [
@@ -132,7 +132,7 @@
   {
     "id": "xy12-3",
     "name": "Caterpie",
-    "supertype": "Pokémon",
+    "supertype": "PokÃ©mon",
     "subtypes": [
       "Basic"
     ],
@@ -152,13 +152,13 @@
         ],
         "convertedEnergyCost": 1,
         "damage": "10",
-        "text": "Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed."
+        "text": "Flip a coin. If heads, your opponent's Active PokÃ©mon is now Paralyzed."
       }
     ],
     "weaknesses": [
       {
         "type": "Fire",
-        "value": "×2"
+        "value": "Ã—2"
       }
     ],
     "retreatCost": [
@@ -184,7 +184,7 @@
   {
     "id": "xy12-4",
     "name": "Metapod",
-    "supertype": "Pokémon",
+    "supertype": "PokÃ©mon",
     "subtypes": [
       "Stage 1"
     ],
@@ -206,7 +206,7 @@
         ],
         "convertedEnergyCost": 2,
         "damage": "",
-        "text": "During your opponent's next turn, any damage done to this Pokémon by attacks is reduced by 40 (after applying Weakness and Resistance)."
+        "text": "During your opponent's next turn, any damage done to this PokÃ©mon by attacks is reduced by 40 (after applying Weakness and Resistance)."
       },
       {
         "name": "Stun Spore",
@@ -216,13 +216,13 @@
         ],
         "convertedEnergyCost": 2,
         "damage": "20",
-        "text": "Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed."
+        "text": "Flip a coin. If heads, your opponent's Active PokÃ©mon is now Paralyzed."
       }
     ],
     "weaknesses": [
       {
         "type": "Fire",
-        "value": "×2"
+        "value": "Ã—2"
       }
     ],
     "retreatCost": [
@@ -249,7 +249,7 @@
   {
     "id": "xy12-5",
     "name": "Weedle",
-    "supertype": "Pokémon",
+    "supertype": "PokÃ©mon",
     "subtypes": [
       "Basic"
     ],
@@ -269,13 +269,13 @@
         ],
         "convertedEnergyCost": 1,
         "damage": "10",
-        "text": "Flip a coin. If heads, your opponent's Active Pokémon is now Poisoned."
+        "text": "Flip a coin. If heads, your opponent's Active PokÃ©mon is now Poisoned."
       }
     ],
     "weaknesses": [
       {
         "type": "Fire",
-        "value": "×2"
+        "value": "Ã—2"
       }
     ],
     "retreatCost": [
@@ -301,7 +301,7 @@
   {
     "id": "xy12-6",
     "name": "Kakuna",
-    "supertype": "Pokémon",
+    "supertype": "PokÃ©mon",
     "subtypes": [
       "Stage 1"
     ],
@@ -323,7 +323,7 @@
         ],
         "convertedEnergyCost": 2,
         "damage": "",
-        "text": "During your opponent's next turn, any damage done to this Pokémon by attacks is reduced by 40 (after applying Weakness and Resistance)."
+        "text": "During your opponent's next turn, any damage done to this PokÃ©mon by attacks is reduced by 40 (after applying Weakness and Resistance)."
       },
       {
         "name": "Poison Powder",
@@ -333,13 +333,13 @@
         ],
         "convertedEnergyCost": 2,
         "damage": "20",
-        "text": "Flip a coin. If heads, your opponent's Active Pokémon is now Poisoned."
+        "text": "Flip a coin. If heads, your opponent's Active PokÃ©mon is now Poisoned."
       }
     ],
     "weaknesses": [
       {
         "type": "Fire",
-        "value": "×2"
+        "value": "Ã—2"
       }
     ],
     "retreatCost": [
@@ -350,7 +350,7 @@
     "number": "6",
     "artist": "Keiji Kinebuchi",
     "rarity": "Uncommon",
-    "flavorText": "This Pokémon is in a temporary stage while making its body. It is almost completely unable to move on its own.",
+    "flavorText": "This PokÃ©mon is in a temporary stage while making its body. It is almost completely unable to move on its own.",
     "nationalPokedexNumbers": [
       14
     ],

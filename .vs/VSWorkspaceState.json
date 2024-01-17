@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Project",
+    "\\Project\\app",
+    "\\Project\\public"
   ],
-  "SelectedNode": "\\C:\\Users\\luna0500\\Source\\Repos\\Luna0500\\DRM",
+  "SelectedNode": "\\Project\\public\\sampleCards.json",
   "PreviewInSolutionExplorer": false
 }
