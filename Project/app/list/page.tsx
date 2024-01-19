@@ -11,7 +11,7 @@ export default function Page() {
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
-            <h1>List Page!</h1>
+            <h1>This the sample list Page!</h1>
             <div className="flex min-h-screen flex-wrap items-center justify-between p-24">
 
             {imgArray.map((imageSrc, index) => (
