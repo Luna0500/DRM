@@ -3,8 +3,7 @@
     "",
     "\\Project",
     "\\Project\\app",
-    "\\Project\\public"
+    "\\Project\\app\\list"
   ],
-  "SelectedNode": "\\Project\\public\\sampleCards.json",
   "PreviewInSolutionExplorer": false
 }
