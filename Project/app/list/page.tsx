@@ -29,7 +29,7 @@ export default function Page() {
         const { id, name, images } = card;
         const imageSrc = images.small;
 
-        // Find pricing information for the current card based on card_ID
+        // Find pricing information for the current card based on card_IDs
         const pricingInfo = pricingArray.find((pricing) => pricing.card_ID === id);
         const HP_Price = pricingInfo ? pricingInfo.HP_Price : 0;
 
