@@ -7,10 +7,11 @@ interface Card {
     images: {
         small: string;
     };
+    card_ID: string;
 }
 
 interface Pricing {
-    id: string;
+    card_ID: string;
     HP_Price: number;
 }
 
@@ -28,11 +29,11 @@ export default function Page() {
         const { id, name, images } = card;
         const imageSrc = images.small;
 
-        // Find pricing information for the current card based on id
-        const pricingInfo = pricingArray.find((pricing) => pricing.id === id);
+        // Find pricing information for the current card based on card_ID
+        const pricingInfo = pricingArray.find((pricing) => pricing.card_ID === id);
         const HP_Price = pricingInfo ? pricingInfo.HP_Price : 0;
 
-        return { id, name, images: { small: imageSrc }, HP_Price };
+        return { id, name, images: { small: imageSrc }, card_ID: id, HP_Price };
     });
 
     return (
