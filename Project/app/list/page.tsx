@@ -50,7 +50,7 @@ export default function Page() {
                 {cardData.map(({ id, name, images, HP_Price, averagePrice }, index) => (
                     <div key={index} className="flex flex-col items-center space-y-2">
                         <Image
-                            className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
+                            className="relative"
                             src={images.small}
                             alt={`Image ${index}`}
                             width={180}

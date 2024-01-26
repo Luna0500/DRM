@@ -11,7 +11,7 @@ export default async function ServerComponent() {
             <h2>{card.flavorText}</h2>
             <div className="flex min-h-screen flex-wrap items-center justify-between p-24">
                 <Image
-                    className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
+                    className="relative"
                     src={card.images.small}
                     alt={`Image`}
                     width={180}
