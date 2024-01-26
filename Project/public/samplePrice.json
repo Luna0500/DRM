@@ -4,42 +4,42 @@
     "HP_ID": 1,
     "HP_Time": "2024-01-23T12:00:00Z",
     "HP_Quantity": 1,
-    "HP_Price": 1
+    "HP_Price": [ 1, 2, 3 ]
   },
   {
     "card_ID": "xy12-2",
     "HP_ID": 2,
     "HP_Time": "2024-01-23T12:05:00Z",
     "HP_Quantity": 2,
-    "HP_Price": 2
+    "HP_Price": [ 2, 3, 4 ]
   },
   {
     "card_ID": "xy12-3",
     "HP_ID": 3,
     "HP_Time": "2024-01-23T12:10:00Z",
     "HP_Quantity": 3,
-    "HP_Price": 3
+    "HP_Price": [ 3, 4, 5 ]
   },
   {
     "card_ID": "xy12-4",
     "HP_ID": 4,
     "HP_Time": "2024-01-23T12:15:00Z",
     "HP_Quantity": 4,
-    "HP_Price": 4
+    "HP_Price": [ 4, 5, 6 ]
   },
   {
     "card_ID": "xy12-5",
     "HP_ID": 5,
     "HP_Time": "2024-01-23T12:20:00Z",
     "HP_Quantity": 5,
-    "HP_Price": 5
+    "HP_Price": [ 5, 6, 7 ]
   },
   {
     "card_ID": "xy12-6",
     "HP_ID": 6,
     "HP_Time": "2024-01-23T12:25:00Z",
     "HP_Quantity": 6,
-    "HP_Price": 6
+    "HP_Price": [ 6, 7, 8 ]
   }
 ]
 
