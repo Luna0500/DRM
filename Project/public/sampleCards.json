@@ -362,5 +362,284 @@
       "small": "https://images.pokemontcg.io/xy12/6.png",
       "large": "https://images.pokemontcg.io/xy12/6_hires.png"
     }
+  },
+  {
+    "id": "svp-1",
+    "name": "Sprigatito",
+    "supertype": "Pokémon",
+    "subtypes": [
+      "Basic"
+    ],
+    "hp": "70",
+    "types": [
+      "Grass"
+    ],
+    "attacks": [
+      {
+        "name": "Mini Drain",
+        "cost": [
+          "Grass"
+        ],
+        "convertedEnergyCost": 1,
+        "damage": "10",
+        "text": "Heal 10 damage from this Pokémon."
+      }
+    ],
+    "weaknesses": [
+      {
+        "type": "Fire",
+        "value": "×2"
+      }
+    ],
+    "retreatCost": [
+      "Colorless"
+    ],
+    "convertedRetreatCost": 1,
+    "number": "1",
+    "artist": "Yuu Nishida",
+    "rarity": "Promo",
+    "flavorText": "Its fluffy fur is similar in composition to plants. This Pokémon frequently washes its face to keep it from drying out.",
+    "nationalPokedexNumbers": [
+      906
+    ],
+    "legalities": {
+      "unlimited": "Legal",
+      "standard": "Legal",
+      "expanded": "Legal"
+    },
+    "regulationMark": "G",
+    "images": {
+      "small": "https://images.pokemontcg.io/svp/1.png",
+      "large": "https://images.pokemontcg.io/svp/1_hires.png"
+    }
+  },
+  {
+    "id": "svp-2",
+    "name": "Fuecoco",
+    "supertype": "Pokémon",
+    "subtypes": [
+      "Basic"
+    ],
+    "hp": "80",
+    "types": [
+      "Fire"
+    ],
+    "attacks": [
+      {
+        "name": "Super Singe",
+        "cost": [
+          "Fire",
+          "Fire",
+          "Colorless"
+        ],
+        "convertedEnergyCost": 3,
+        "damage": "30",
+        "text": "Your opponent's Active Pokémon is now Burned."
+      }
+    ],
+    "weaknesses": [
+      {
+        "type": "Water",
+        "value": "×2"
+      }
+    ],
+    "retreatCost": [
+      "Colorless",
+      "Colorless"
+    ],
+    "convertedRetreatCost": 2,
+    "number": "2",
+    "artist": "Ryuta Fuse",
+    "rarity": "Promo",
+    "flavorText": "It lies on warm rocks and uses the heat absorbed by its square-shaped scales to create fire energy.",
+    "nationalPokedexNumbers": [
+      909
+    ],
+    "legalities": {
+      "unlimited": "Legal",
+      "standard": "Legal",
+      "expanded": "Legal"
+    },
+    "regulationMark": "G",
+    "images": {
+      "small": "https://images.pokemontcg.io/svp/2.png",
+      "large": "https://images.pokemontcg.io/svp/2_hires.png"
+    }
+  },
+  {
+    "id": "svp-3",
+    "name": "Quaxly",
+    "supertype": "Pokémon",
+    "subtypes": [
+      "Basic"
+    ],
+    "hp": "70",
+    "types": [
+      "Water"
+    ],
+    "attacks": [
+      {
+        "name": "Water Splash",
+        "cost": [
+          "Water",
+          "Colorless"
+        ],
+        "convertedEnergyCost": 2,
+        "damage": "20+",
+        "text": "Flip a coin. If heads, this attack does 20 more damage."
+      }
+    ],
+    "weaknesses": [
+      {
+        "type": "Lightning",
+        "value": "×2"
+      }
+    ],
+    "retreatCost": [
+      "Colorless"
+    ],
+    "convertedRetreatCost": 1,
+    "number": "3",
+    "artist": "Narumi Sato",
+    "rarity": "Promo",
+    "flavorText": "This Pokémon migrated to Paldea from distant lands long ago. The gel secreted by its feathers repels water and grime.",
+    "nationalPokedexNumbers": [
+      912
+    ],
+    "legalities": {
+      "unlimited": "Legal",
+      "standard": "Legal",
+      "expanded": "Legal"
+    },
+    "regulationMark": "G",
+    "images": {
+      "small": "https://images.pokemontcg.io/svp/3.png",
+      "large": "https://images.pokemontcg.io/svp/3_hires.png"
+    }
+  },
+  {
+    "id": "svp-4",
+    "name": "Mimikyu ex",
+    "supertype": "Pokémon",
+    "subtypes": [
+      "Basic",
+      "ex"
+    ],
+    "hp": "190",
+    "types": [
+      "Psychic"
+    ],
+    "rules": [
+      "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+    ],
+    "attacks": [
+      {
+        "name": "Void Return",
+        "cost": [
+          "Psychic"
+        ],
+        "convertedEnergyCost": 1,
+        "damage": "30",
+        "text": "You may switch this Pokémon with 1 of your Benched Pokémon."
+      },
+      {
+        "name": "Energy Burst",
+        "cost": [
+          "Psychic",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedEnergyCost": 3,
+        "damage": "30×",
+        "text": "This attack does 30 damage for each Energy attached to both Active Pokémon."
+      }
+    ],
+    "weaknesses": [
+      {
+        "type": "Metal",
+        "value": "×2"
+      }
+    ],
+    "retreatCost": [
+      "Colorless"
+    ],
+    "convertedRetreatCost": 1,
+    "number": "4",
+    "artist": "PLANETA Yamashita",
+    "rarity": "Promo",
+    "nationalPokedexNumbers": [
+      778
+    ],
+    "legalities": {
+      "unlimited": "Legal",
+      "standard": "Legal",
+      "expanded": "Legal"
+    },
+    "regulationMark": "G",
+    "images": {
+      "small": "https://images.pokemontcg.io/svp/4.png",
+      "large": "https://images.pokemontcg.io/svp/4_hires.png"
+    }
+  },
+  {
+    "id": "svp-5",
+    "name": "Quaquaval",
+    "supertype": "Pokémon",
+    "subtypes": [
+      "Stage 2"
+    ],
+    "hp": "170",
+    "types": [
+      "Water"
+    ],
+    "evolvesFrom": "Quaxwell",
+    "abilities": [
+      {
+        "name": "Energy Carnival",
+        "text": "Once during your turn, you may attach a Basic Energy card from your hand to 1 of your Pokémon.",
+        "type": "Ability"
+      }
+    ],
+    "attacks": [
+      {
+        "name": "Hydro Kick",
+        "cost": [
+          "Water",
+          "Colorless",
+          "Colorless"
+        ],
+        "convertedEnergyCost": 3,
+        "damage": "140",
+        "text": ""
+      }
+    ],
+    "weaknesses": [
+      {
+        "type": "Lightning",
+        "value": "×2"
+      }
+    ],
+    "retreatCost": [
+      "Colorless",
+      "Colorless"
+    ],
+    "convertedRetreatCost": 2,
+    "number": "5",
+    "artist": "kodama",
+    "rarity": "Promo",
+    "flavorText": "A single kick from a Quaquaval can send a truck rolling. This Pokémon uses its powerful legs to perform striking dances from far-off lands.",
+    "nationalPokedexNumbers": [
+      914
+    ],
+    "legalities": {
+      "unlimited": "Legal",
+      "standard": "Legal",
+      "expanded": "Legal"
+    },
+    "regulationMark": "G",
+    "images": {
+      "small": "https://images.pokemontcg.io/svp/5.png",
+      "large": "https://images.pokemontcg.io/svp/5_hires.png"
+    }
   }
 ]
