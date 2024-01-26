@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import * as fs from 'fs';
-
 interface Card {
     id: string;
     name: string;
@@ -44,8 +43,8 @@ export default function Page() {
     });
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
-            <h1>List Page!</h1>
+        <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-blue-100">
+            <h1 className="text-5xl text-black">Listings</h1>
             <div className="flex min-h-screen flex-wrap items-center justify-between p-24">
                 {cardData.map(({ id, name, images, HP_Price, averagePrice }, index) => (
                     <div key={index} className="flex flex-col items-center space-y-2">
@@ -64,5 +63,7 @@ export default function Page() {
             </div>
         </main>
     );
+
+
 }
 
