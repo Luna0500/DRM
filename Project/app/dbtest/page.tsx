@@ -3,12 +3,13 @@ import Image from 'next/image';
 import '../list/homePage.css';
 
 export default async function Page() {
-    const exampleCard = await fetchCards();
     /*
+    const exampleCard = await fetchCards();
+    
     return (
         <h1>{JSON.stringify(exampleCard)}</h1>
     )
-    */
+    
     return (
         <div>
             <div className="flex min-h-screen flex-wrap items-center justify-between p-24">
@@ -30,4 +31,6 @@ export default async function Page() {
             </div>
         </div>
     )
+    */
+   return <h1>Nonfunctional</h1>
 }
