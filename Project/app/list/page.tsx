@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import * as fs from 'fs';
 import '../list/homePage.css';
+import { fetchCards } from '@/app/lib/data';
 interface Card {
     id: string;
     name: string;
@@ -19,19 +20,17 @@ interface CardWithAveragePrice extends Card, Pricing {
     averagePrice: number;
 }
 
-export default function Page() {
-    // Read card data from the main JSON file
-    let rawData = fs.readFileSync('../Project/public/sampleCards.json', 'utf8');
-    let jsonDataArray: Card[] = JSON.parse(rawData);
+export default async function Page() {
+    const exampleCards = await fetchCards();
 
     // Read pricing data from the separate JSON file
     let pricingData = fs.readFileSync('../Project/public/samplePrice.json', 'utf8');
     let pricingArray: Pricing[] = JSON.parse(pricingData);
 
     // Create cardData array dynamically from jsonDataArray and pricingArray
-    const cardData: CardWithAveragePrice[] = jsonDataArray.map((card) => {
+    const cardData: CardWithAveragePrice[] = exampleCards.map((card) => {
         const { id, name, images } = card;
-        const imageSrc = images.small;
+        const imageSrc = card.data.images.small;
 
         // Find pricing information for the current card based on card_IDs
         const pricingInfo = pricingArray.find((pricing) => pricing.card_ID === id);
