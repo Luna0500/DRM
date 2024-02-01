@@ -2,7 +2,7 @@ import { fetchCards } from '@/app/lib/data';
 import Image from 'next/image';
 import '../list/homePage.css';
 
-export default async function Page(request: Request) {
+export default async function Page() {
     const exampleCard = await fetchCards();
     /*
     return (
