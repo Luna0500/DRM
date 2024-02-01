@@ -3,9 +3,9 @@ import { sql } from '@vercel/postgres';
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
-/*
-export default async function DBLOAD(request: Request) {
 
+export default async function DBLOAD(request: Request) {
+    /*
     await PokemonTCG.findCardByID("xy12-2")
         .then(card => {
             const cardData = card;
@@ -24,6 +24,6 @@ export default async function DBLOAD(request: Request) {
             console.error('Card Load Error:', error);
             throw new Error('Failed to load card data.');
         });
-
+    */
+    return <h1>Uncomment to load database.</h1>
     }
-*/

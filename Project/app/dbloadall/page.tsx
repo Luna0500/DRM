@@ -2,9 +2,9 @@ import { PokemonTCG } from 'pokemon-tcg-sdk-typescript';
 import { sql } from '@vercel/postgres';
 const { db } = require('@vercel/postgres');
 import { createClient } from '@vercel/postgres';
-/*
+
 export default async function seedCards() {
-    
+    /*
     try {
 
         // Create the "cards" table if it doesn't exist
@@ -44,10 +44,10 @@ export default async function seedCards() {
 
         console.log(`Seeded ${insertedCards.length} cards`);
 
-    } catch (error) {
-        console.error('Error seeding cards:', error);
-        throw error;
+        } catch (error) {
+            console.error('Error seeding cards:', error);
+            throw error;
+    }
+    */
+   return <h1>Uncomment to seed cards</h1>
 }
-    
-}
-*/
