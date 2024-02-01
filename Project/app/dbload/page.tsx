@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
-export default async function DBLOAD(request: Request) {
+export default async function DBLOAD() {
     /*
     await PokemonTCG.findCardByID("xy12-2")
         .then(card => {
