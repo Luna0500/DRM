@@ -2,12 +2,15 @@ import Image from 'next/image';
 import * as fs from 'fs';
 import '../list/homePage.css';
 import { fetchCards } from '@/app/lib/data';
+
 interface Card {
     id: string;
-    name: string;
-    images: {
-        small: string;
-    };
+    data: {
+        name: string;
+        images: {
+            small: string;
+        };
+    }
     card_ID: string;
 }
 
@@ -24,16 +27,14 @@ export default async function Page() {
     const exampleCards = await fetchCards();
     const cardsJson = JSON.stringify(exampleCards);
     let cardsObj: Card[] = JSON.parse(cardsJson);
-
     // Read pricing data from the separate JSON file
     let pricingData = fs.readFileSync('../Project/public/samplePrice.json', 'utf8');
     let pricingArray: Pricing[] = JSON.parse(pricingData);
 
     // Create cardData array dynamically from jsonDataArray and pricingArray
-    const cardData: CardWithAveragePrice[] = cardsObj.map((card) => {
-        const { id, name, images } = card;
+    const cardData: CardWithAveragePrice[] = await cardsObj.map((card) => {
+        const { id, data: { name, images } } = card;
         const imageSrc = images.small;
-
         // Find pricing information for the current card based on card_IDs
         const pricingInfo = pricingArray.find((pricing) => pricing.card_ID === id);
         const HP_Prices = pricingInfo ? pricingInfo.HP_Price : [];
@@ -41,18 +42,18 @@ export default async function Page() {
         // Calculate the average of multiple prices
         const averagePrice = HP_Prices.length > 0 ? HP_Prices.reduce((a, b) => a + b) / HP_Prices.length : 0;
 
-        return { id, name, images: { small: imageSrc }, card_ID: id, HP_Price: HP_Prices, averagePrice };
+        return { id, data: { name, images: { small: imageSrc } }, card_ID: id, HP_Price: HP_Prices, averagePrice };
     });
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-blue-100">
             <h1 className="text-5xl text-black">Listings</h1>
             <div className="flex min-h-screen flex-wrap items-center justify-between p-24">
-                {cardData.map(({ id, name, images, HP_Price, averagePrice }, index) => (
+                {cardData.map(({ id, data: { name, images }, HP_Price, averagePrice }, index) => (
                     <div key={index} className="card">
                         <Image
                             className="relative"
-                            src={images.small}
+                            src={`${images ? images.small: " / none"}`}
                             alt={`Image ${index}`}
                             width={180}
                             height={37}
