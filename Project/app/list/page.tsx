@@ -22,15 +22,17 @@ interface CardWithAveragePrice extends Card, Pricing {
 
 export default async function Page() {
     const exampleCards = await fetchCards();
+    const cardsJson = JSON.stringify(exampleCards);
+    let cardsObj: Card[] = JSON.parse(cardsJson);
 
     // Read pricing data from the separate JSON file
     let pricingData = fs.readFileSync('../Project/public/samplePrice.json', 'utf8');
     let pricingArray: Pricing[] = JSON.parse(pricingData);
 
     // Create cardData array dynamically from jsonDataArray and pricingArray
-    const cardData: CardWithAveragePrice[] = exampleCards.map((card) => {
+    const cardData: CardWithAveragePrice[] = cardsObj.map((card) => {
         const { id, name, images } = card;
-        const imageSrc = card.data.images.small;
+        const imageSrc = images.small;
 
         // Find pricing information for the current card based on card_IDs
         const pricingInfo = pricingArray.find((pricing) => pricing.card_ID === id);
