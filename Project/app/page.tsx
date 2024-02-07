@@ -9,17 +9,23 @@ export default function Home() {
           {/* Top Bar */}
           <div className="fixed top-0 left-0 right-0 flex justify-between items-center h-16 bg-blue-900 text-white px-8">
               <p className="font-mono text-sm">
-                  This the top bar
+                  Welcome to DRM Name TBD
               </p>
-              <div className="flex items-center">
+              <div className="flex justify-center items-center">
                   <input
                       type="text"
                       placeholder="Search..."
                       className="px-3 py-1 mr-4 rounded-md outline-none bg-white text-gray-800"
                   />
-                  <button className="px-4 py-2 bg-white text-blue-500 rounded-md font-semibold hover:bg-blue-50">
+                  <button className="px-3 py-2 bg-white text-blue-500 rounded-md font-semibold text-sm hover:bg-blue-50">
                       Search
                   </button>
+              </div>
+              <div className="flex items-center">
+                  <div className="mr-4">Home</div>
+                  <div className="mr-4">Pro</div>
+                  <div className="mr-4">Settings</div>
+                  
               </div>
           </div>
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
