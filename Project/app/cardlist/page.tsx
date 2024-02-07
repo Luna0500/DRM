@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import * as fs from 'fs';
-import '../list/homePage.css';
+import '../cardlist/homePage.css';
 import { fetchCards } from '@/app/lib/data';
 
 interface Card {

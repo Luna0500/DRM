@@ -1,6 +1,6 @@
 import { fetchCards } from '@/app/lib/data';
 import Image from 'next/image';
-import '../list/homePage.css';
+import '../cardlist/homePage.css';
 
 export default async function Page() {
     /*
