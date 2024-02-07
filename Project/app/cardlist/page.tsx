@@ -52,7 +52,7 @@ export default async function Page() {
                 {cardData.map(({ id, data: { name, images }, HP_Price, averagePrice }, index) => (
                     <div key={index} className="card">
                         <Image
-                            className="relative"
+                            className="relative "
                             src={`${images ? images.small: " / none"}`}
                             alt={`Image ${index}`}
                             width={180}
