@@ -37,7 +37,7 @@ export default async function Page({
     const cardsJson = JSON.stringify(exampleCards);
     let cardsObj: Card[] = JSON.parse(cardsJson);
     // Read pricing data from the separate JSON file
-    let pricingData = fs.readFileSync('../Project/public/samplePrice.json', 'utf8');
+    let pricingData = fs.readFileSync('@/public/samplePrice.json', 'utf8');
     let pricingArray: Pricing[] = JSON.parse(pricingData);
 
     // Create a map for easy access to pricing data
