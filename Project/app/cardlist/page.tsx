@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import * as fs from 'fs';
+import fs from 'fs';
 import '../cardlist/homePage.css';
 import Search from '@/app/ui/search';
 import { fetchCardsByName } from '@/app/lib/data';
@@ -36,9 +36,15 @@ export default async function Page({
     const exampleCards = await fetchCardsByName(nameQuery);
     const cardsJson = JSON.stringify(exampleCards);
     let cardsObj: Card[] = JSON.parse(cardsJson);
-    // Read pricing data from the separate JSON file
-    let pricingData = fs.readFileSync('@/public/samplePrice.json', 'utf8');
-    let pricingArray: Pricing[] = JSON.parse(pricingData);
+
+    let pricingArray: Pricing[] = [];
+    try {
+        // Read pricing data from the separate JSON file
+        const pricingData = fs.readFileSync('@/public/samplePrice.json', 'utf8');
+        pricingArray = JSON.parse(pricingData);
+    } catch (error) {
+        console.error('Error reading pricing data:', error);
+    }
 
     // Create a map for easy access to pricing data
     const pricingMap = new Map(pricingArray.map(pricing => [pricing.card_ID, pricing]));
