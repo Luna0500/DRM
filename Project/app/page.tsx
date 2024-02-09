@@ -1,5 +1,5 @@
 import Image from 'next/image'
-
+import HomeSearch from '@/app/ui/homeSearch'
 
 export default function Home() {
 
@@ -16,7 +16,7 @@ export default function Home() {
                       type="text"
                       placeholder="Search..."
                       className="px-3 py-1 mr-4 rounded-md outline-none bg-white text-gray-800"
-                  /> 
+                  />
                   <button className="px-3 py-2 bg-white text-blue-500 rounded-md font-semibold text-sm hover:bg-blue-50">
                       Search
                   </button>

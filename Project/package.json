@@ -10,12 +10,14 @@
     "seed": "node -r dotenv/config ./scripts/seed.tsx"
   },
   "dependencies": {
+    "@heroicons/react": "^2.1.1",
     "@vercel/postgres": "^0.7.2",
     "dotenv": "^16.4.1",
     "next": "14.0.4",
     "pokemon-tcg-sdk-typescript": "^1.3.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "use-debounce": "^10.0.0"
   },
   "devDependencies": {
     "@types/node": "20.11.5",
