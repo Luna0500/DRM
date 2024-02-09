@@ -64,6 +64,7 @@ export function Card({
     );
 }
 */
+
 import Image from 'next/image';
 import fs from 'fs';
 import '@/app/cardlist/homePage.css';
