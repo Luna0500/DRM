@@ -12,18 +12,7 @@ export default function Home() {
                   Welcome to DRM Name TBD
               </p>
               <div className="flex justify-center items-center">
-<<<<<<< HEAD
-                  <input
-                      type="text"
-                      placeholder="Search..."
-                      className="px-3 py-1 mr-4 rounded-md outline-none bg-white text-gray-800"
-                  />  
-                  <button className="px-3 py-2 bg-white text-blue-500 rounded-md font-semibold text-sm hover:bg-blue-50">
-                      Search
-                  </button>
-=======
                   <HomeSearch placeholder="Search cards..." />
->>>>>>> 895545b23f69bbaf8b97752499d169061dba1f38
               </div>
               <div className="flex items-center">
                   <div className="mr-4">Home</div>
