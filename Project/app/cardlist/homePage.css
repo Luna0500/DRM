@@ -1,6 +1,4 @@
 ﻿
-
-
 .card {
     position: relative;
     padding: 1rem;
@@ -16,9 +14,11 @@
         border-radius: 0.375rem;
         z-index: 3;
     }
+
         .card img:hover {
             transform: scale(1.5);
         }
+
     .card .title {
         margin-top: 0.5rem;
         font-size: 1.25rem;
@@ -34,7 +34,6 @@
         display: flex;
         justify-content: space-between;
         margin-top: 1rem;
-
     }
 
     .card button {
@@ -42,26 +41,27 @@
         padding: 0.25rem 0.5rem;
         border-radius: 0.25rem;
         cursor: pointer;
-        margin-right: 0.5rem; 
-    } 
+        margin-right: 0.5rem;
+    }
 
-    .card button.buy-now {
+        .card button.buy-now {
             margin-left: 0;
             margin-right: 0;
             background-color: #1e81b0;
-    }
+        }
 
-   .card button.buy-now:hover {
-           background-color: #156f99;
-   }
+            .card button.buy-now:hover {
+                background-color: #156f99;
+            }
 
 
-  .card button.add-to-cart {
-       background-color: #38a169;
-  }
+        .card button.add-to-cart {
+            background-color: #38a169;
+        }
 
-    .card button.add-to-cart:hover {
-        background-color: #2b8c59;
-    }
+            .card button.add-to-cart:hover {
+                background-color: #2b8c59;
+            }
+
 
 
