@@ -17,7 +17,9 @@ export default function RootLayout({
 }) {
   return (
       <html lang="en">
-          <div className="fixed top-0 left-0 right-0 flex justify-between items-center h-16 bg-blue-900 text-white px-8">
+          
+          <body className={inter.className}>
+              <div className="fixed top-0 left-0 right-0 flex justify-between items-center h-16 bg-blue-900 text-white px-8">
               <p className="font-mono text-sm">
                   Welcome to DRM Name TBD
               </p>
@@ -31,7 +33,8 @@ export default function RootLayout({
 
               </div>
           </div>
-      <body className={inter.className}>{children}</body>
+              {children}
+          </body>
     </html>
   )
 }

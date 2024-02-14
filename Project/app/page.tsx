@@ -18,7 +18,6 @@ export default function Home() {
                   <div className="mr-4">Home</div>
                   <div className="mr-4">Profile</div>
                   <div className="mr-4">Settings</div>
-
               </div>
           </div>
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
