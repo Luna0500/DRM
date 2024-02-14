@@ -138,8 +138,8 @@ export default async function Cards({nameQuery}: {nameQuery: string;})
                         className="relative "
                         src={`${images ? images.small : " / none"}`}
                         alt={`Image ${index}`}
-                        width={180}
-                        height={37}
+                        width={240}
+                        height={330}
                         priority
                     />
                     <p className="title">{name}</p>
