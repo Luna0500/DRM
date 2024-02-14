@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import HomeSearch from '@/app/ui/homeSearch'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +16,21 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+      <html lang="en">
+          <div className="fixed top-0 left-0 right-0 flex justify-between items-center h-16 bg-blue-900 text-white px-8">
+              <p className="font-mono text-sm">
+                  Welcome to DRM Name TBD
+              </p>
+              <div className="flex justify-center items-center">
+                  <HomeSearch placeholder="Search cards..." />
+              </div>
+              <div className="flex items-center">
+                  <div className="mr-4">Home</div>
+                  <div className="mr-4">Profile</div>
+                  <div className="mr-4">Settings</div>
+
+              </div>
+          </div>
       <body className={inter.className}>{children}</body>
     </html>
   )
