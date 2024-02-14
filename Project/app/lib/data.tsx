@@ -26,7 +26,7 @@ export async function fetchCardsByName(query: string) {
 
         // const data = await sql <JSON>`SELECT * FROM cards WHERE id = 'swsh6-61';`;
 
-        const data = await sql <JSON>`SELECT * FROM cards WHERE data->>'name' ILIKE ${`%${query}%`} ORDER BY data->>'id' LIMIT 20;`;
+        const data = await sql <JSON>`SELECT * FROM cards WHERE data->>'name' ILIKE ${`%${query}%`} ORDER BY data->>'id' LIMIT 28;`;
 
         return data.rows;
     } catch (error) {
