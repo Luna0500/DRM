@@ -133,7 +133,7 @@ export default async function Cards({nameQuery}: {nameQuery: string;})
     return (
         <div className="flex min-h-screen flex-wrap items-center justify-between p-24">
             {cardData.map(({ id, data: { name, images }, HP_Price, averagePrice }, index) => (
-                <div key={index} className="card">
+                <div key={index} className="card h-[30rem]">
                     <Image
                         className="relative "
                         src={`${images ? images.small : " / none"}`}
