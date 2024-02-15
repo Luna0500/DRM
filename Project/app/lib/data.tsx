@@ -36,7 +36,6 @@ export async function fetchCardsByName(query: string) {
 }
 
 export async function fetchListings() {
-    noStore();
     try {
         const data = await sql`SELECT * FROM listing;`;
         return data.rows;
@@ -47,7 +46,6 @@ export async function fetchListings() {
 }
 
 export async function fetchListingsByPRD_ID(query: string) {
-    noStore();
     try {
         const data = await sql<JSON>`SELECT * FROM listing WHERE PRD_ID = ${query} ORDER BY LST_ID LIMIT 10;`;
         return data.rows;
