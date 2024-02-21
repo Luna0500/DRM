@@ -70,8 +70,10 @@ import fs from 'fs';
 import '@/app/cardlist/homePage.css';
 import Search from '@/app/ui/search';
 import { fetchCardsByName } from '@/app/lib/data';
+import React from 'react';
 
 interface Card {
+
     id: string;
     data: {
         name: string;
@@ -81,6 +83,8 @@ interface Card {
     };
     card_ID: string;
     seed_price: number; // Include seed_price from the cards table
+    
+
 }
 
 interface Pricing {
