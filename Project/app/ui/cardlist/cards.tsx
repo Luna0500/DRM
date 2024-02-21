@@ -138,14 +138,16 @@ export default async function Cards({nameQuery}: {nameQuery: string;})
         <div className="flex min-h-screen flex-wrap items-center justify-between p-24">
             {cardData.map(({ id, data: { name, images }, HP_Price, averagePrice }, index) => (
                 <div key={index} className="card h-[30rem]">
-                    <Image
+                    <a href={"/carddetail?IDQuery=" + id}>
+                        <Image
                         className="relative "
-                        src={`${images ? images.small : " / none"}`}
+                        src={`${images ? images.small : "/none"}`}
                         alt={`Image ${index}`}
                         width={240}
                         height={330}
                         priority
-                    />
+                        />
+                    </a>
                     <p className="title">{name}</p>
                     <p className="price">Price: ${averagePrice}</p>
                     <div className="buttons">

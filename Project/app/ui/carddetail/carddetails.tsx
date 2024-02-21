@@ -1,10 +1,11 @@
 ﻿import Image from 'next/image';
-import { useRouter } from 'next/router';
-import '@/app/carddetail/cardDetail.css'; // You can create a CSS file for styling
+import '@/app/cardlist/homePage.css';
 import React from 'react';
-export interface CardDetailProps {
-    cardDetails: {
-        id: string;
+import { fetchCardByID } from '@/app/lib/data';
+
+export interface CardDetail {
+    id: string;
+    data: {
         name: string;
         supertype: string;
         subtypes: string[];
@@ -36,44 +37,33 @@ export interface CardDetailProps {
         images: {
             small: string;
             large: string;
-        };
-    };
+        }
+    }
 }
 
-const CardDetail: React.FC<CardDetailProps> = ({ cardDetails }) => {
-    const router = useRouter();
-
-    // Handle back navigation
-    const handleGoBack = () => {
-        router.back();
-    };
+export default async function CardDetail({ IDQuery }: { IDQuery: string; }) {
+    IDQuery = IDQuery ? IDQuery : '';
+    const Card = await fetchCardByID(IDQuery);
+    const cardsJson = JSON.stringify(Card[0]);
+    let cardObj: CardDetail = JSON.parse(cardsJson);
 
     return (
         <div className="card-detail">
-            <div className="header">
-                <button className="back-button" onClick={handleGoBack}>
-                    Back
-                </button>
-            </div>
             <div className="content">
-                <h2>{cardDetails.name}</h2>
+                <h2>{cardObj.data.name}</h2>
                 <Image
-                    src={cardDetails.images.large}
+                    src={`${cardObj.data.images ? cardObj.data.images.large : "/none"}`}
                     alt={`Large Image`}
                     width={400}
                     height={550}
                     priority
                 />
-                {/* Display other card details here */}
-                <p>Supertype: {cardDetails.supertype}</p>
-                <p>HP: {cardDetails.hp}</p>
-                {/* Add more details based on card data structure */}
-                {/* can also map through arrays like subtypes, weaknesses, etc. to display them */}
+                <p>Supertype: {cardObj.data.supertype}</p>
+                <p>HP: {cardObj.data.hp}</p>
 
-                {/* Display Attacks */}
                 <div className="attacks">
                     <h3>Attacks:</h3>
-                    {cardDetails.attacks.map((attack, index) => (
+                    {cardObj.data.attacks.map((attack, index) => (
                         <div key={index} className="attack">
                             <p>Name: {attack.name}</p>
                             <p>Cost: {attack.cost.join(', ')}</p>
@@ -83,10 +73,7 @@ const CardDetail: React.FC<CardDetailProps> = ({ cardDetails }) => {
                     ))}
                 </div>
 
-                {/* Display other details as needed */}
             </div>
         </div>
     );
 };
-
-export default CardDetail;
