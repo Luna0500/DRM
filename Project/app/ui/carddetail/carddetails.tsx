@@ -1,7 +1,9 @@
 ﻿import Image from 'next/image';
 import '@/app/cardlist/homePage.css';
 import React from 'react';
-import { fetchCardByID } from '@/app/lib/data';
+import { fetchCardByID, fetchListingsByPRD_ID } from '@/app/lib/data';
+
+
 
 export interface CardDetail {
     id: string;
@@ -46,6 +48,8 @@ export default async function CardDetail({ IDQuery }: { IDQuery: string; }) {
     const Card = await fetchCardByID(IDQuery);
     const cardsJson = JSON.stringify(Card[0]);
     let cardObj: CardDetail = JSON.parse(cardsJson);
+    
+    
 
     return (
         <div className="card-detail">

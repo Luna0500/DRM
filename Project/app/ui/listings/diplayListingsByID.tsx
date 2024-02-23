@@ -1,4 +1,5 @@
 import { fetchListingsServerAction } from '@/app/actions';
+import { fetchListingsByPRD_ID } from '@/app/lib/data';
 
 
 export interface Listing {
@@ -13,9 +14,9 @@ export interface Listing {
     LST_ShipOption: string;
 }
 
-export default async function Listings() {
+export default async function Listings({ IDQuery }: { IDQuery: string; }) {
     // Fetch initial listings data
-    const listingsData: any[] = await fetchListingsServerAction();
+    const listingsData: any[] = await fetchListingsByPRD_ID(IDQuery);
     // Map the fetched data to the Listing interface
     const listings: Listing[] = listingsData.map((item: any) => ({
         LST_ID: item.lst_id,
