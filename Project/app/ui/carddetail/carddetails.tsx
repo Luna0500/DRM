@@ -1,7 +1,7 @@
 ﻿import Image from 'next/image';
 import '@/app/cardlist/homePage.css';
 import React from 'react';
-import { fetchCardByID, fetchListingsByPRD_ID } from '@/app/lib/data';
+import { fetchCardByID } from '@/app/lib/data';
 
 
 
@@ -48,8 +48,8 @@ export default async function CardDetail({ IDQuery }: { IDQuery: string; }) {
     const Card = await fetchCardByID(IDQuery);
     const cardsJson = JSON.stringify(Card[0]);
     let cardObj: CardDetail = JSON.parse(cardsJson);
-    
-    
+
+
 
     return (
         <div className="card-detail">
@@ -67,17 +67,21 @@ export default async function CardDetail({ IDQuery }: { IDQuery: string; }) {
 
                 <div className="attacks">
                     <h3>Attacks:</h3>
-                    {cardObj.data.attacks.map((attack, index) => (
-                        <div key={index} className="attack">
-                            <p>Name: {attack.name}</p>
-                            <p>Cost: {attack.cost.join(', ')}</p>
-                            <p>Damage: {attack.damage}</p>
-                            <p>Text: {attack.text}</p>
-                        </div>
-                    ))}
-                </div>
 
+                    {cardObj.data.attacks && cardObj.data.attacks.length > 0 ? (
+                        cardObj.data.attacks.map((attack, index) => (
+                            <div key={index} className="attack">
+                                <p>Name: {attack.name}</p>
+                                <p>Cost: {attack.cost.join(', ')}</p>
+                                <p>Damage: {attack.damage}</p>
+                                <p>Text: {attack.text}</p>
+                            </div>
+                        ))
+                    ) : (
+                        <p>No attacks available</p>
+                    )}
+                </div>
             </div>
         </div>
     );
-};
+}
