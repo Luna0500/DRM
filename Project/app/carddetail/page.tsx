@@ -16,10 +16,10 @@ export default async function Page({
     const IDQuery = searchParams?.IDQuery || '';
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-blue-100">
-            <h1 className="text-5xl text-black">Card Detail</h1>
+            <h1 className="text-5xl text-black mb-4">Card Detail</h1>
             <CardDetail IDQuery={IDQuery} />
-            <h2 className="text-5xl text-black">Listings</h2>
-            <Listings IDQuery ={IDQuery } />
+            <h2 className="text-5xl text-black my-4">Listings</h2>
+            <Listings IDQuery={IDQuery} />
         </main>
     );
 }
