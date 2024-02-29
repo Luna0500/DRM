@@ -31,9 +31,6 @@ export default function RootLayout({
                       <a href="/cardlist" className="mr-4">
                           Cards
                       </a>
-                      <a href="/displaylistings" className="mr-4">
-                          Listings
-                      </a>
                       <a href="/createlisting" className="mr-4">
                           New Listing
                       </a>
