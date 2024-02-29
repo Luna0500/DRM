@@ -56,7 +56,7 @@ export async function fetchCardByID(query: string) {
 }
 
 export async function fetchListings() {
-    //noStore();
+    noStore();
     try {
         const data = await sql`SELECT * FROM listing ORDER BY LST_ID LIMIT 10;`;
         return data.rows;
