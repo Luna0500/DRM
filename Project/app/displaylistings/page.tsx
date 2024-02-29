@@ -1,3 +1,5 @@
+'use server';
+
 import '@/app/cardlist/homePage.css';
 import Listings from '../ui/listings/displayListings';
 
