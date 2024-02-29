@@ -3,7 +3,7 @@ import fs from 'fs';
 import Search from '@/app/ui/search';
 import { fetchCardsByName } from '@/app/lib/data';
 import CardDetail from '@/app/ui/carddetail/carddetails';
-import Listings from '@/app/ui/listings/diplayListingsByID';
+import ListingsByPRD_ID from '@/app/ui/listings/displayListingsByPRD_ID';
 
 
 export default async function Page({
@@ -19,7 +19,7 @@ export default async function Page({
             <h1 className="text-5xl text-black">Card Detail</h1>
             <CardDetail IDQuery={IDQuery} />
             <h2 className="text-5xl text-black">Listings</h2>
-            <Listings IDQuery ={IDQuery } />
+            <ListingsByPRD_ID IDQuery ={IDQuery } />
         </main>
     );
 }

@@ -1,17 +1,6 @@
+import '@/app/cardlist/homePage.css';
 import { fetchListingsServerAction } from '@/app/actions';
-
-
-export interface Listing {
-    LST_ID: number;
-    PRD_ID: string;
-    LST_Time: string;
-    LST_Status: string;
-    LST_Price: number;
-    LST_Quantity: number;
-    LST_Location: string;
-    LST_Condition: string;
-    LST_ShipOption: string;
-}
+import { Listing } from '@/app/ui/listings/listingInterface'
 
 export default async function Listings() {
     // Fetch initial listings data
@@ -40,6 +29,9 @@ export default async function Listings() {
                     <p>Location: {LST_Location}</p>
                     <p>Condition: {LST_Condition}</p>
                     <p>Shipping Option: {LST_ShipOption}</p>
+                    <a href={"/updatelisting?IDQuery=" + LST_ID}>
+                        <button className="edit-listing">Edit Listing</button>
+                    </a>
                 </div>
             ))}
         </div>

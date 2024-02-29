@@ -1,5 +1,8 @@
+'use server';
+
 import { sql } from '@vercel/postgres';
 import { unstable_noStore as noStore } from 'next/cache';
+import { Listing } from '@/app/ui/listings/listingInterface'
 
 export async function fetchCards() {
     // Add noStore() here to prevent the response from being cached.
@@ -53,8 +56,9 @@ export async function fetchCardByID(query: string) {
 }
 
 export async function fetchListings() {
+    noStore();
     try {
-        const data = await sql`SELECT * FROM listing;`;
+        const data = await sql`SELECT * FROM listing ORDER BY LST_ID LIMIT 10;`;
         return data.rows;
     } catch (error) {
         console.error('Database Error:', error);
@@ -63,8 +67,20 @@ export async function fetchListings() {
 }
 
 export async function fetchListingsByPRD_ID(query: string) {
+    noStore();
     try {
         const data = await sql<JSON>`SELECT * FROM listing WHERE PRD_ID = ${query} ORDER BY LST_ID LIMIT 10;`;
+        return data.rows;
+    } catch (error) {
+        console.error('Database Error:', error);
+        throw new Error('Failed to fetch listing data.');
+    }
+}
+
+export async function fetchListingByLST_ID(query: number) {
+    noStore();
+    try {
+        const data = await sql<JSON>`SELECT * FROM listing WHERE LST_ID = ${query};`;
         return data.rows;
     } catch (error) {
         console.error('Database Error:', error);
@@ -86,8 +102,11 @@ export async function createListing(listingData: any) {
 
 export async function updateListing(listingId: number, updatedData: any) {
     try {
-        const { PRD_ID, LST_Time, LST_Status, LST_Price, LST_Quantity, LST_Location, LST_Condition, LST_ShipOption } = updatedData;
+        const { PRD_ID, LST_Status, LST_Price, LST_Quantity, LST_Location, LST_Condition, LST_ShipOption } = updatedData;
+        const LST_Time = new Date().toISOString();
+        console.log(updatedData)
         const data = await sql<JSON>`UPDATE listing SET PRD_ID = ${PRD_ID}, LST_Time = ${LST_Time}, LST_Status = ${LST_Status}, LST_Price = ${LST_Price}, LST_Quantity = ${LST_Quantity}, LST_Location = ${LST_Location}, LST_Condition = ${LST_Condition}, LST_ShipOption = ${LST_ShipOption} WHERE LST_ID = ${listingId} RETURNING *;`;
+
         return data.rows[0];
     } catch (error) {
         console.error('Database Error:', error);
@@ -96,12 +115,7 @@ export async function updateListing(listingId: number, updatedData: any) {
 }
 
 export async function deleteListing(listingId: number) {
-    try {
-        const data = await sql<JSON>`DELETE FROM listing WHERE LST_ID = ${listingId} RETURNING *;`;
-        return data.rows[0];
-    } catch (error) {
-        console.error('Database Error:', error);
-        throw new Error('Failed to delete listing.');
-    }
+    const data = await sql<JSON>`DELETE FROM listing WHERE LST_ID = ${listingId} RETURNING *;`;
+    return data.rows[0];
 }
 

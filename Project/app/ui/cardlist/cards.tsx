@@ -106,7 +106,7 @@ export default async function Cards({nameQuery}: {nameQuery: string;})
     let pricingArray: Pricing[] = [];
     try {
         // Read pricing data from the separate JSON file
-        const pricingData = fs.readFileSync('@/public/samplePrice.json', 'utf8');
+        const pricingData = fs.readFileSync('public/samplePrice.json', 'utf8');
         pricingArray = JSON.parse(pricingData);
     } catch (error) {
         console.error('Error reading pricing data:', error);
