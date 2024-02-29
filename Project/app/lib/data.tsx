@@ -35,6 +35,23 @@ export async function fetchCardsByName(query: string) {
     }
 }
 
+export async function fetchCardsByType(query: string) {
+    // Add noStore() here to prevent the response from being cached.
+    // This is equivalent to in fetch(..., {cache: 'no-store'}).
+    noStore();
+    try {
+
+        // const data = await sql <JSON>`SELECT * FROM cards WHERE id = 'swsh6-61';`;
+
+        const data = await sql <JSON>`SELECT * FROM cards WHERE data->>'type' ILIKE ${`%${query}%`} ORDER BY data->>'id' LIMIT 28;`;
+
+        return data.rows;
+    } catch (error) {
+        console.error('Database Error:', error);
+        throw new Error('Failed to fetch card data.');
+    }
+}
+
 export async function fetchCardByID(query: string) {
     // Add noStore() here to prevent the response from being cached.
     // This is equivalent to in fetch(..., {cache: 'no-store'}).
