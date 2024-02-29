@@ -55,17 +55,6 @@ export async function fetchCardByID(query: string) {
     }
 }
 
-export async function fetchListings() {
-    noStore();
-    try {
-        const data = await sql`SELECT * FROM listing ORDER BY LST_ID LIMIT 10;`;
-        return data.rows;
-    } catch (error) {
-        console.error('Database Error:', error);
-        throw new Error('Failed to fetch listing data.');
-    }
-}
-
 export async function fetchListingsByPRD_ID(query: string) {
     noStore();
     try {

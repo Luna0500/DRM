@@ -26,7 +26,7 @@ const UpdateListingForm = ({ listing }: { listing: Listing; }) => {
         e.preventDefault();
         try {
             await updateListingServerAction(listing.LST_ID, formData);
-            router.push('/displaylistings');
+            router.push('carddetail?IDQuery=' + listing.PRD_ID);
         } catch (error) {
             // Handle error (e.g., display error message)
             console.error('Error creating listing:', error);

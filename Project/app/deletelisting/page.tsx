@@ -13,7 +13,7 @@ export default function DeleteListing({
     const IDQuery = searchParams?.IDQuery || 0;
     const router = useRouter();
     deleteListing(IDQuery);
-    router.push('/displaylistings');
+    router.push('/cardlist');
     return (
         <div></div>
     )
