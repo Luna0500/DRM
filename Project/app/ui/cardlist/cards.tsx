@@ -69,7 +69,7 @@ import Image from 'next/image';
 import fs from 'fs';
 import '@/app/cardlist/homePage.css';
 import Search from '@/app/ui/search';
-import { fetchCardsByName } from '@/app/lib/data';
+import { fetchCardsByName, fetchCardsByAttack, fetchCardsByHP } from '@/app/lib/data';
 import React from 'react';
 
 interface Card {
@@ -96,11 +96,16 @@ interface CardWithAveragePrice extends Card, Pricing {
     averagePrice: number;
 }
 
-export default async function Cards({nameQuery}: {nameQuery: string;})
+export default async function Cards({ nameQuery, attackQuery, hpQuery }: { nameQuery: string; attackQuery: string; hpQuery: number })
 {
     nameQuery = nameQuery ? nameQuery : '';
-    const exampleCards = await fetchCardsByName(nameQuery);
-    const cardsJson = JSON.stringify(exampleCards);
+    var fetchedCards = await fetchCardsByName(nameQuery);
+    if (attackQuery) {
+        fetchedCards = await fetchCardsByAttack(attackQuery);
+    } else if (hpQuery) {
+        fetchedCards = await fetchCardsByHP(hpQuery);
+    }
+    const cardsJson = JSON.stringify(fetchedCards);
     let cardsObj: Card[] = JSON.parse(cardsJson);
 
     let pricingArray: Pricing[] = [];
