@@ -63,5 +63,18 @@
                 background-color: #2b8c59;
             }
 
+        .card button.edit-listing {
+            background-color: #1e81b0;
+        }
 
+            .card button.edit-listing:hover {
+                background-color: #156f99;
+            }
 
+        .card button.delete-listing {
+            background-color: #c92f1a;
+        }
+
+            .card button.delete-listing:hover {
+                background-color: #ab2816;
+            }

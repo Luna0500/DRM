@@ -1,18 +1,7 @@
 'use server'
 
 // Import necessary functions for CRUD operations on listings
-import { fetchListings, fetchListingsByPRD_ID, createListing, updateListing, deleteListing } from '@/app/lib/data';
-
-// Fetch listings server action
-export async function fetchListingsServerAction() {
-    try {
-        const listings = await fetchListings();
-        return listings;
-    } catch (error) {
-        console.error('Server Action Error:', error);
-        throw new Error('Failed to fetch listings.');
-    }
-}
+import { fetchListingsByPRD_ID, createListing, updateListing, deleteListing } from '@/app/lib/data';
 
 // Fetch listings by PRD_ID server action
 export async function fetchListingsByPRD_IDServerAction(PRD_ID: string) {
