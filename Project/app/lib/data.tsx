@@ -50,18 +50,6 @@ export async function fetchCardsByAttack(query: string) {
     }
 }
 
-export async function fetchCardsByHP(query: number) {
-    noStore();
-    try {
-        const data = await sql<JSON>`SELECT * FROM cards WHERE data->>'hp' = ${query} ORDER BY data->>'id' LIMIT 28;`;
-
-        return data.rows;
-    } catch (error) {
-        console.error('Database Error:', error);
-        throw new Error('Failed to fetch card data by hit points.');
-    }
-}
-
 export async function fetchCardByID(query: string) {
     // Add noStore() here to prevent the response from being cached.
     // This is equivalent to in fetch(..., {cache: 'no-store'}).
