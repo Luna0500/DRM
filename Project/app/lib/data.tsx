@@ -67,6 +67,18 @@ export async function fetchCardByID(query: string) {
     }
 }
 
+export async function fetchCardsByHP(query: number) {
+    noStore();
+    try {
+        const data = await sql<JSON>`SELECT * FROM cards WHERE data->>'hp' = ${query} ORDER BY data->>'id' LIMIT 28;`;
+
+        return data.rows;
+    } catch (error) {
+        console.error('Database Error:', error);
+        throw new Error('Failed to fetch card data by hit points.');
+    }
+}
+
 export async function fetchListingsByPRD_ID(query: string) {
     noStore();
     try {
