@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import HomeSearch from '@/app/ui/homeSearch'
+import Image from 'next/image';
+import logo from '@/public/logo.png';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,7 +21,9 @@ export default function RootLayout({
       <html lang="en">
           
           <body className={inter.className}>
+              
               <div className="fixed top-0 left-0 right-0 flex justify-between items-center h-16 bg-blue-900 text-white px-8 z-30">
+                  <Image src={logo} alt="logo" className="w-16 h-16" />
                   <p className="font-mono text-sm">
                       Welcome to DRM Name TBD
                   </p>
