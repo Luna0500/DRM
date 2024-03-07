@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import HomeSearch from '@/app/ui/homeSearch'
+import Header from '@/app/ui/header';
+import { SessionProvider } from "@/app/provider"
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,29 +16,16 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
-}) {
+    }
+) {
   return (
       <html lang="en">
           
           <body className={inter.className}>
-              <div className="fixed top-0 left-0 right-0 flex justify-between items-center h-16 bg-blue-900 text-white px-8 z-30">
-                  <p className="font-mono text-sm">
-                      Welcome to DRM Name TBD
-                  </p>
-
-                  <div className="flex items-center">
-                      <a href="/" className="mr-4">
-                          Home
-                      </a>
-                      <a href="/cardlist" className="mr-4">
-                          Cards
-                      </a>
-                      <a href="/createlisting" className="mr-4">
-                          New Listing
-                      </a>
-                  </div>
-              </div>
-              {children}
+              <SessionProvider>
+              <Header />
+                  {children}
+              </SessionProvider>
           </body>
     </html>
   )

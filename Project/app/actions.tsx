@@ -19,9 +19,9 @@ export async function fetchListingsByPRD_IDServerAction(PRD_ID: string) {
 
 
 // Create listing server action
-export async function createListingServerAction(listingData: any) {
+export async function createListingServerAction(listingData: any, userEmail: any) {
     try {
-        const newListing = await createListing(listingData);
+        const newListing = await createListing(listingData, userEmail);
         return newListing;
     } catch (error) {
         console.error('Server Action Error:', error);
