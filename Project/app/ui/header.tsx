@@ -2,6 +2,8 @@
 
 import { useSession, signIn, signOut } from "next-auth/react"
 import '@/app/globals.css'
+import Image from 'next/image';
+import logo from '@/public/logo.png';
 
 export default function Header() {
     const { data: session, status } = useSession()
@@ -9,6 +11,7 @@ export default function Header() {
 
     return (
         <div className="fixed top-0 left-0 right-0 flex justify-between items-center h-16 bg-blue-900 text-white px-8 z-30">
+            <Image src={logo} alt="logo" className="w-16 h-16" />
             <p className="font-mono text-sm">
                 Welcome to DRM Name TBD
             </p>
