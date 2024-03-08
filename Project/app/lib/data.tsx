@@ -30,7 +30,7 @@ export async function fetchCardsByName(query: string) {
 
         // const data = await sql <JSON>`SELECT * FROM cards WHERE id = 'swsh6-61';`;
 
-        const data = await sql <JSON>`SELECT * FROM cards WHERE data->>'name' ILIKE ${`%${query}%`} ORDER BY data->>'id' LIMIT 28;`;
+        const data = await sql <JSON>`SELECT * FROM cards WHERE data->>'name' ILIKE ${`%${query}%`} ORDER BY data->>'id' LIMIT 30;`;
 
         return data.rows;
     } catch (error) {
@@ -42,7 +42,7 @@ export async function fetchCardsByName(query: string) {
 export async function fetchCardsByAttack(query: string) {
     noStore();
     try {
-        const data = await sql<JSON>`SELECT * FROM cards WHERE data->>'attacks' ILIKE ${`%${query}%`} ORDER BY data->>'id' LIMIT 28;`;
+        const data = await sql<JSON>`SELECT * FROM cards WHERE data->>'attacks' ILIKE ${`%${query}%`} ORDER BY data->>'id' LIMIT 30;`;
 
         return data.rows;
     } catch (error) {
@@ -71,7 +71,7 @@ export async function fetchCardByID(query: string) {
 export async function fetchCardsByHP(query: number) {
     noStore();
     try {
-        const data = await sql<JSON>`SELECT * FROM cards WHERE data->>'hp' = ${query} ORDER BY data->>'id' LIMIT 28;`;
+        const data = await sql<JSON>`SELECT * FROM cards WHERE data->>'hp' = ${query} ORDER BY data->>'id' LIMIT 30;`;
 
         return data.rows;
     } catch (error) {
