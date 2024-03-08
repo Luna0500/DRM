@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import fs from 'fs';
-import '@/app/cardlist/homePage.css';
+//import '@/app/cardlist/homePage.css';
 import HomeSearch from '@/app/ui/homeSearch';
 import { fetchCardsByName } from '@/app/lib/data';
 import Cards from '@/app/ui/cardlist/cards';
