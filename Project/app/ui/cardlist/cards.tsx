@@ -145,6 +145,7 @@ export default async function Cards({ nameQuery, attackQuery, hpQuery }: { nameQ
                 <div key={index} className="card h-[30rem]">
                     <a href={"/carddetail?IDQuery=" + id}>
                         <Image
+                        unoptimized
                         className="relative "
                         src={`${images ? images.small : "/none"}`}
                         alt={`Image ${index}`}

@@ -56,6 +56,7 @@ export default async function CardDetail({ IDQuery }: { IDQuery: string; }) {
             <div className="flex flex-col md:flex-row">
                 <div className="flex-shrink-0 md:mr-4">
                     <Image
+                        unoptimized
                         src={`${cardObj.data.images ? cardObj.data.images.large : "/none"}`}
                         alt={`Large Image`}
                         width={400}
