@@ -6,10 +6,13 @@ import { updateListingServerAction } from '@/app/actions';
 import { useRouter } from 'next/navigation'
 import { Listing } from '@/app/ui/listings/listingInterface'
 import { list } from 'postcss';
+import { useSession } from "next-auth/react";
 
 
 const UpdateListingForm = ({ listing }: { listing: Listing; }) => {
     const router = useRouter();
+    const { data: session, status } = useSession();
+    const userEmail = session?.user?.email
     const initialFormData = {
         PRD_ID: listing.PRD_ID,
         LST_Status: listing.LST_Status,
@@ -41,7 +44,16 @@ const UpdateListingForm = ({ listing }: { listing: Listing; }) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+    if (listing.LST_UserEmail !== userEmail) {
+        return (
+            <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-blue-100">
+                <h1 className="text-5xl text-black">You Must Login to Update a Listing!</h1>
+            </main>
+        );
+    }
+
     return (
+        <div>
         <form onSubmit={handleSubmit}>
             <input type="text" name="PRD_ID" placeholder={formData.PRD_ID} value={formData.PRD_ID} onChange={handleChange} />
             <select name="LST_Status" value={formData.LST_Status} onChange={handleSelectChange}>
@@ -58,6 +70,10 @@ const UpdateListingForm = ({ listing }: { listing: Listing; }) => {
                 Add
             </button>
         </form>
+        <a href={"/deletelisting?IDQuery=" + listing.LST_ID}>
+            <button className="delete-listing">Delete Listing</button>
+        </a>
+        </div>
     );
 };
 

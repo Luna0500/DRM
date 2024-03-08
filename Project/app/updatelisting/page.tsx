@@ -16,6 +16,7 @@ export default async function Page({
     // Map the fetched data to the Listing interface
     const listingMap: Listing[] = listingsData.map((item: any) => ({
         LST_ID: item.lst_id,
+        LST_UserEmail: item.lst_useremail,
         PRD_ID: item.prd_id,
         LST_Time: item.lst_time.toString(),
         LST_Status: item.lst_status,
@@ -31,9 +32,6 @@ export default async function Page({
         <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-blue-100">
             <h1 className="text-5xl text-black">Create Listing</h1>
             <UpdateListingForm listing={listing} />
-            <a href={"/deletelisting?IDQuery=" + listing.LST_ID}>
-                <button className="delete-listing">Delete Listing</button>
-            </a>
         </main>
     );
 }

@@ -4,10 +4,13 @@ import React, { useState } from 'react';
 import { SubmitButton } from '@/app/ui/submitButton';
 import { createListingServerAction } from '@/app/actions';
 import { useRouter } from 'next/navigation'
+import { useSession } from "next-auth/react"
 
 
 const CreateListingForm = () => {
     const router = useRouter();
+    const { data: session, status } = useSession();
+    const userEmail = session?.user?.email
 
     const initialFormData = {
         PRD_ID: '',
@@ -16,7 +19,7 @@ const CreateListingForm = () => {
         LST_Quantity: '',
         LST_Location: '',
         LST_Condition: '',
-        LST_ShipOption: ''
+        LST_ShipOption: '',
     };
 
     const [formData, setFormData] = useState(initialFormData);
@@ -24,7 +27,7 @@ const CreateListingForm = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            await createListingServerAction(formData);
+            await createListingServerAction(formData, userEmail);
             router.push('/displaylistings');
         } catch (error) {
             // Handle error (e.g., display error message)

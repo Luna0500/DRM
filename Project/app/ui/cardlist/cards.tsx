@@ -67,12 +67,13 @@ export function Card({
 
 import Image from 'next/image';
 import fs from 'fs';
-//import '@/app/cardlist/homePage.css';
+import '@/app/cardlist/homePage.css';
 import Search from '@/app/ui/search';
 import { fetchCardsByName, fetchCardsByAttack, fetchCardsByHP } from '@/app/lib/data';
 import React from 'react';
 
 interface Card {
+
     id: string;
     data: {
         name: string;
@@ -82,6 +83,8 @@ interface Card {
     };
     card_ID: string;
     seed_price: number; // Include seed_price from the cards table
+    
+
 }
 
 interface Pricing {
@@ -93,14 +96,8 @@ interface CardWithAveragePrice extends Card, Pricing {
     averagePrice: number;
 }
 
-const truncateName = (name: string, maxLength: number) => {
-    if (name.length > maxLength) {
-        return name.substring(0, maxLength - 3) + '...';
-    }
-    return name;
-};
-
-export default async function Cards({ nameQuery, attackQuery, hpQuery }: { nameQuery: string; attackQuery: string; hpQuery: number }) {
+export default async function Cards({ nameQuery, attackQuery, hpQuery }: { nameQuery: string; attackQuery: string; hpQuery: number })
+{
     nameQuery = nameQuery ? nameQuery : '';
     var fetchedCards = await fetchCardsByName(nameQuery);
     if (attackQuery) {
@@ -108,7 +105,6 @@ export default async function Cards({ nameQuery, attackQuery, hpQuery }: { nameQ
     } else if (hpQuery) {
         fetchedCards = await fetchCardsByHP(hpQuery);
     }
-    
     const cardsJson = JSON.stringify(fetchedCards);
     let cardsObj: Card[] = JSON.parse(cardsJson);
 
@@ -146,34 +142,26 @@ export default async function Cards({ nameQuery, attackQuery, hpQuery }: { nameQ
     return (
         <div className="flex min-h-screen flex-wrap items-center justify-between p-24">
             {cardData.map(({ id, data: { name, images }, HP_Price, averagePrice }, index) => (
-                <div key={index} className="card-container bg-white rounded-lg overflow-hidden shadow-md p-4 mb-8">
-                    <div className="grid grid-cols-2">
-                        {/* Card Image */}
-                        <div className="p-4">
-                            <a href={"/carddetail?IDQuery=" + id}>
-                                <Image
-                                    className="relative"
-                                    src={`${images ? images.small : "/none"}`}
-                                    alt={`Image ${index}`}
-                                    width={120}  // Adjust the width according to your preference
-                                    height={165} // Adjust the height according to your preference
-                                    priority
-                                />
-                            </a>
-                        </div>
-
-                        {/* Card Information */}
-                        <div className="p-4">
-                            <h2 className="text-2xl font-bold mb-4">{truncateName(name, 10)}</h2>
-                            <p className="price">Price: ${averagePrice}</p>
-                            {/* View Listings Button */}
-                            <a href={`/listings?cardID=${id}`} className="view-listings-button bg-blue-500 text-white py-2 px-4 mt-4 inline-block hover:bg-blue-700">
-                                View Listings
-                            </a>
-                        </div>
+                <div key={index} className="card h-[30rem]">
+                    <a href={"/carddetail?IDQuery=" + id}>
+                        <Image
+                        unoptimized
+                        className="relative "
+                        src={`${images ? images.small : "/none"}`}
+                        alt={`Image ${index}`}
+                        width={240}
+                        height={330}
+                        priority
+                        />
+                    </a>
+                    <p className="title">{name}</p>
+                    <p className="price">Price: ${averagePrice}</p>
+                    <div className="buttons">
+                        <button className="buy-now">Buy Now</button>
+                        <button className="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
-            ))}
+            ))}     
         </div>
     );
 }

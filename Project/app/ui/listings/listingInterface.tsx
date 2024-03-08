@@ -1,5 +1,6 @@
 export interface Listing {
     LST_ID: number;
+    LST_UserEmail: string;
     PRD_ID: string;
     LST_Time: string;
     LST_Status: string;

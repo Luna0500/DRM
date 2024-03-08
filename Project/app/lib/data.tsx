@@ -3,6 +3,7 @@
 import { sql } from '@vercel/postgres';
 import { unstable_noStore as noStore } from 'next/cache';
 import { Listing } from '@/app/ui/listings/listingInterface'
+import { useRouter } from 'next/navigation'
 
 export async function fetchCards() {
     // Add noStore() here to prevent the response from being cached.
@@ -101,11 +102,11 @@ export async function fetchListingByLST_ID(query: number) {
     }
 }
 
-export async function createListing(listingData: any) {
+export async function createListing(listingData: any, userEmail: any) {
     try {
         const { PRD_ID, LST_Status, LST_Price, LST_Quantity, LST_Location, LST_Condition, LST_ShipOption } = listingData;
         const LST_Time = new Date().toISOString();
-        const data = await sql<JSON>`INSERT INTO listing (PRD_ID, LST_Time, LST_Status, LST_Price, LST_Quantity, LST_Location, LST_Condition, LST_ShipOption) VALUES (${PRD_ID}, ${LST_Time}, ${LST_Status}, ${LST_Price}, ${LST_Quantity}, ${LST_Location}, ${LST_Condition}, ${LST_ShipOption}) RETURNING *;`;
+        const data = await sql<JSON>`INSERT INTO listing (PRD_ID, LST_UserEmail, LST_Time, LST_Status, LST_Price, LST_Quantity, LST_Location, LST_Condition, LST_ShipOption) VALUES (${PRD_ID}, ${userEmail}, ${LST_Time}, ${LST_Status}, ${LST_Price}, ${LST_Quantity}, ${LST_Location}, ${LST_Condition}, ${LST_ShipOption}) RETURNING *;`;
         return data.rows[0];
     } catch (error) {
         console.error('Database Error:', error);

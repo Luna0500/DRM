@@ -8,6 +8,7 @@ export default async function ListingsByPRD_ID({ IDQuery }: { IDQuery: string; }
     // Map the fetched data to the Listing interface
     const listings: Listing[] = listingsData.map((item: any) => ({
         LST_ID: item.lst_id,
+        LST_UserEmail: item.lst_useremail,
         PRD_ID: item.prd_id,
         LST_Time: item.lst_time.toString(),
         LST_Status: item.lst_status,
