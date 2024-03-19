@@ -170,7 +170,7 @@ export default async function Cards({ nameQuery, attackQuery, hpQuery }: { nameQ
                             <h2 className="text-2xl font-bold mb-4">{truncateName(name, 9)}</h2>
                             <p className="price">Price: ${averagePrice}</p>
                             {/* View Listings Button */}
-                            <a href={`/listings?cardID=${id}`} className="view-listings-button bg-blue-500 text-white py-2 px-4 mt-4 inline-block hover:bg-blue-700">
+                            <a href={`/carddetail?IDQuery=${id}`} className="view-listings-button bg-blue-500 text-white py-2 px-4 mt-4 inline-block hover:bg-blue-700">
                                 View Listings
                             </a>
                         </div>
