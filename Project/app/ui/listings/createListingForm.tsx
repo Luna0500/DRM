@@ -28,7 +28,7 @@ const CreateListingForm = () => {
         e.preventDefault();
         try {
             await createListingServerAction(formData, userEmail);
-            router.push('/displaylistings');
+            router.push('/carddetail?IDQuery=' + formData.PRD_ID);
         } catch (error) {
             // Handle error (e.g., display error message)
             console.error('Error creating listing:', error);
