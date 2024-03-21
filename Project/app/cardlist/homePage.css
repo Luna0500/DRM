@@ -16,7 +16,7 @@
     }
 
         .card img:hover {
-            transform: scale(1.5);
+            transform: scale(2.25);
         }
 
     .card .title {
@@ -78,3 +78,7 @@
             .card button.delete-listing:hover {
                 background-color: #ab2816;
             }
+
+.delete-listing {
+    background-color: #c92f1a;
+}

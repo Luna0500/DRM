@@ -145,19 +145,21 @@ export default async function Cards({ nameQuery, attackQuery, hpQuery }: { nameQ
     });
 
     return (
+
         <div className="flex min-h-screen flex-wrap items-center justify-between p-24">
             {cardData.map(({ id, data: { name, images }, HP_Price, averagePrice }, index) => (
-                <div key={index} className="card-container bg-white rounded-lg overflow-hidden shadow-md p-4 mb-8">
+                <div key={index} className="card bg-white rounded-lg shadow-md p-4 mb-10 w-[26rem] z">
                     <div className="grid grid-cols-2">
                         {/* Card Image */}
-                        <div className="p-4">
+                        <div className="p-4  card-image-container ">
                             <a href={"/carddetail?IDQuery=" + id}>
                                 <Image
-                                    className="relative"
+                                    unoptimized
+                                    className="relative hover:scale-120 transition-transform"
                                     src={`${images ? images.small : "/none"}`}
                                     alt={`Image ${index}`}
-                                    width={120}  // Adjust the width according to your preference
-                                    height={165} // Adjust the height according to your preference
+                                    width={120}
+                                    height={165}
                                     priority
                                 />
                             </a>
@@ -165,10 +167,10 @@ export default async function Cards({ nameQuery, attackQuery, hpQuery }: { nameQ
 
                         {/* Card Information */}
                         <div className="p-4">
-                            <h2 className="text-2xl font-bold mb-4">{truncateName(name, 10)}</h2>
+                            <h2 className="text-2xl font-bold mb-4">{truncateName(name, 12)}</h2>
                             <p className="price">Price: ${averagePrice}</p>
                             {/* View Listings Button */}
-                            <a href={`/listings?cardID=${id}`} className="view-listings-button bg-blue-500 text-white py-2 px-4 mt-4 inline-block hover:bg-blue-700">
+                            <a href={`/carddetail?IDQuery=${id}`} className="view-listings-button bg-blue-500 text-white py-2 px-4 mt-4 inline-block hover:bg-blue-700">
                                 View Listings
                             </a>
                         </div>
