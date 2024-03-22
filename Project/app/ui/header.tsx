@@ -11,10 +11,12 @@ export default function Header() {
     const userEmail = session?.user?.email
 
     return (
-        <div className="fixed top-0 left-0 right-0 flex justify-between items-center h-20 bg-blue-900 text-white px-8 z-30">
-            <Image src={logo} alt="logo" className="w-16 h-16" />
+        <div className="fixed top-0 left-0 right-0 flex justify-between items-center h-20 bg-[#3d3937] text-white px-8 z-30">
+            <a href="/" className="mr-4">
+                <Image src={logo} alt="logo" className="w-16 h-16" />
+            </a>
             <p className="font-mono text-sm">
-                Welcome to DRM Name TBD
+                Welcome to Zycardes
             </p>
 
             <div className="flex items-center">

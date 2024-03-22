@@ -5,7 +5,7 @@ export default function Home() {
 
 
   return (
-      <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-blue-100">
+      <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-[#daffb5]">
           
       <div className="flex justify-center items-center">
            <HomeSearch placeholder="Search cards..." />
