@@ -4,6 +4,7 @@ import { useSession, signIn, signOut } from "next-auth/react"
 import '@/app/globals.css'
 import Image from 'next/image';
 import logo from '@/public/logo.png';
+import '@/app/cardlist/homePage.css'
 
 export default function Header() {
     const { data: session, status } = useSession()
@@ -17,13 +18,13 @@ export default function Header() {
             </p>
 
             <div className="flex items-center">
-                <a href="/" className="mr-4">
+                <a href="/" className="topbar-buttons mr-4">
                     Home
                 </a>
-                <a href="/cardlist" className="mr-4">
+                <a href="/cardlist" className="topbar-buttons mr-4 ">
                     Cards
                 </a>
-                <a href="/createlisting" className="mr-4">
+                <a href="/createlisting" className="topbar-buttons mr-4 ">
                     New Listing
                 </a>
                 {status === "authenticated" ? (

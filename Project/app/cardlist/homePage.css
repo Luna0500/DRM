@@ -82,3 +82,9 @@
 .delete-listing {
     background-color: #c92f1a;
 }
+
+.topbar-buttons {
+    border: 2px solid white; 
+    border-radius: 8px; 
+    padding: 4px 8px;
+}
