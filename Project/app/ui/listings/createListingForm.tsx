@@ -43,35 +43,38 @@ const CreateListingForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-            <div className="mb-4">
-                <input type="text" name="PRD_ID" placeholder="Product ID" value={formData.PRD_ID} onChange={handleChange} className="form-input" />
-            </div>
-            <div className="mb-4">
-                <select name="LST_Status" value={formData.LST_Status} onChange={handleSelectChange} className="form-select">
-                    <option value="">Select Status</option>
-                    <option value="Active">Active</option>
-                    <option value="Inactive">Inactive</option>
-                </select>
-            </div>
-            <div className="mb-4">
-                <input type="text" name="LST_Price" placeholder="Price" value={formData.LST_Price} onChange={handleChange} className="form-input" />
-            </div>
-            <div className="mb-4">
-                <input type="number" name="LST_Quantity" placeholder="Quantity" value={formData.LST_Quantity} onChange={handleChange} className="form-input" />
-            </div>
-            <div className="mb-4">
-                <input type="text" name="LST_Location" placeholder="Location" value={formData.LST_Location} onChange={handleChange} className="form-input" />
-            </div>
-            <div className="mb-4">
-                <input type="text" name="LST_Condition" placeholder="Condition" value={formData.LST_Condition} onChange={handleChange} className="form-input" />
-            </div>
-            <div className="mb-4">
-                <input type="text" name="LST_ShipOption" placeholder="Shipping Option" value={formData.LST_ShipOption} onChange={handleChange} className="form-input" />
-            </div>
-            <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Add
-            </button>
-        </form>
+        <div className="rounded-lg bg-white p-6">
+            <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-10">
+                <div className="mb-4">
+                    <input type="text" name="PRD_ID" placeholder="Product ID" value={formData.PRD_ID} onChange={handleChange} className="form-input w-full px-4 py-2 bg-gray-100 border border-black text-left" />
+                </div>
+                <div className="mb-4">
+                    <select name="LST_Status" value={formData.LST_Status} onChange={handleSelectChange} className="form-select w-full px-4 py-2 bg-gray-100 border border-black text-left">
+                        <option value="">Select Status</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                </div>
+                <div className="mb-4">
+                    <input type="text" name="LST_Price" placeholder="Price" value={formData.LST_Price} onChange={handleChange} className="form-input w-full px-4 py-2 bg-gray-100 border border-black text-left" />
+                </div>
+                <div className="mb-4">
+                    <input type="number" name="LST_Quantity" placeholder="Quantity" value={formData.LST_Quantity} onChange={handleChange} className="form-input w-full px-4 py-2 bg-gray-100 border border-black text-left" />
+                </div>
+                <div className="mb-4">
+                    <input type="text" name="LST_Location" placeholder="Location" value={formData.LST_Location} onChange={handleChange} className="form-input w-full px-4 py-2 bg-gray-100 border border-black text-left" />
+                </div>
+                <div className="mb-4">
+                    <input type="text" name="LST_Condition" placeholder="Condition" value={formData.LST_Condition} onChange={handleChange} className="form-input w-full px-4 py-2 bg-gray-100 border border-black text-left" />
+                </div>
+                <div className="mb-4">
+                    <input type="text" name="LST_ShipOption" placeholder="Shipping Option" value={formData.LST_ShipOption} onChange={handleChange} className="form-input w-full px-4 py-2 bg-gray-100 border border-black text-left" />
+                </div>
+                <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font py-2 px-4 rounded">
+                    Add
+                </button>
+            </form>
+        </div>
     );
 };
+export default CreateListingForm;
