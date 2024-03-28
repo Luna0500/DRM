@@ -14,18 +14,18 @@ export default function Header() {
     return (
         <div className="fixed top-0 left-0 right-0 flex justify-between items-center h-24 bg-[#3d3937] text-white px-8 z-30">
             <a href="/" className="mr-4">
-                <Image src={logo} alt="logo" className="w-16 h-16" />
+                <Image src={logo} alt="logo" className="w-16 h-16 justify-start" />
             </a>
           
-            <div className="flex justify-center items-center">
-                <HomeSearch placeholder="Search cards..." />
+            <div className="flex  items-center">
+                <HomeSearch placeholder="Search..." />
             </div> 
 
             <div className="flex items-center">
                 <a href="/" className="topbar-buttons mr-4">
                     Home
                 </a>
-                <a href="/cardlist" className="topbar-buttons mr-4 ">
+                <a href="/cardlist" className="topbar-buttons  mr-4 ">
                     Cards
                 </a>
                 <a href="/createlisting" className="topbar-buttons mr-4 ">
@@ -33,11 +33,11 @@ export default function Header() {
                 </a>
                 {status === "authenticated" ? (
                     <>
-                        <p>Signed in as {userEmail + "- -"}</p>
+                        <p className="topbar-buttons">Signed in as {userEmail + "- -"}</p>
                         <button onClick={() => signOut()}>Sign out</button>
                     </>
                 ) : (
-                    <button onClick={() => signIn("GitHub")}>Sign in</button>
+                        <button className="topbar-buttons justify-end" onClick={() => signIn("GitHub")}>Sign in</button>
                 )}
             </div>
         </div>
