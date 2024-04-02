@@ -18,7 +18,7 @@ export default async function Page({
     const attackQuery = searchParams?.attackQuery || '';
     const hpQuery = searchParams?.hpQuery || 0;
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-[#daffb5]">
+        <main className="colorbg flex min-h-screen flex-col items-center justify-between p-24">
             <h1 className="text-5xl text-black">Cards</h1>
             <div className="flex items-end h-18">
                 <HomeSearch placeholder="Search cards..." />

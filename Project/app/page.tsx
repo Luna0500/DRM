@@ -1,6 +1,10 @@
 import Image from 'next/image'
 import HomeSearch from '@/app/ui/homeSearch'
-
+import fs from 'fs';
+import '@/app/cardlist/homePage.css';
+import Search from '@/app/ui/search';
+import { fetchCardsByName, fetchCardsByAttack, fetchCardsByHP } from '@/app/lib/data';
+import React from 'react';
 export default function Home() {
 
 
@@ -19,7 +23,7 @@ export default function Home() {
           priority
         />
       </div>
-
+                              
       <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
         <a
           href="/createlisting"

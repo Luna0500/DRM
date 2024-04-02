@@ -146,7 +146,7 @@ export default async function Cards({ nameQuery, attackQuery, hpQuery }: { nameQ
 
     return (
 
-        <div className="flex min-h-screen flex-wrap items-center justify-between p-24">
+        <div className="colorbg flex min-h-screen flex-wrap items-center justify-between p-24">
             {cardData.map(({ id, data: { name, images }, HP_Price, averagePrice }, index) => (
                 <div key={index} className="card bg-[#eafae1] rounded-lg shadow-md p-4 mb-10 w-[26rem] z">
                     <div className="grid grid-cols-2">

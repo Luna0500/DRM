@@ -48,7 +48,7 @@ export default async function CardDetail({ IDQuery }: { IDQuery: string; }) {
     let cardObj: CardDetail = JSON.parse(cardsJson);
 
     return (
-        <div className="bg-white shadow-lg border border-black rounded-lg overflow-hidden max-w-6xl mx-auto mt-8 p-6">
+        <div className="shadow-lg border border-black rounded-lg overflow-hidden max-w-6xl mx-auto mt-8 p-6">
             <div className="flex flex-col md:flex-row">
                 {/* Card Image */}
                 <div className="flex-shrink-0 md:mr-4">
