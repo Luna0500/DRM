@@ -22,15 +22,17 @@ export async function fetchCards() {
     }
 }
 
-export async function fetchCardsByName(query: string) {
+export async function fetchCardsByName(query: string, page: number = 1) {
     // Add noStore() here to prevent the response from being cached.
     // This is equivalent to in fetch(..., {cache: 'no-store'}).
     noStore();
+    const limit = 30;
+    const offset = (page - 1) * limit
     try {
 
         // const data = await sql <JSON>`SELECT * FROM cards WHERE id = 'swsh6-61';`;
 
-        const data = await sql <JSON>`SELECT * FROM cards WHERE data->>'name' ILIKE ${`%${query}%`} ORDER BY data->>'id' LIMIT 30;`;
+        const data = await sql <JSON>`SELECT * FROM cards WHERE data->>'name' ILIKE ${`%${query}%`} ORDER BY data->>'id' LIMIT ${limit} OFFSET ${offset};`;
 
         return data.rows;
     } catch (error) {
@@ -39,10 +41,12 @@ export async function fetchCardsByName(query: string) {
     }
 }
 
-export async function fetchCardsByAttack(query: string) {
+export async function fetchCardsByAttack(query: string, page: number = 1) {
     noStore();
+    const limit = 30;
+    const offset = (page - 1) * limit
     try {
-        const data = await sql<JSON>`SELECT * FROM cards WHERE data->>'attacks' ILIKE ${`%${query}%`} ORDER BY data->>'id' LIMIT 30;`;
+        const data = await sql<JSON>`SELECT * FROM cards WHERE data->>'attacks' ILIKE ${`%${query}%`} ORDER BY data->>'id' LIMIT ${limit} OFFSET ${offset};`;
 
         return data.rows;
     } catch (error) {
@@ -68,10 +72,12 @@ export async function fetchCardByID(query: string) {
     }
 }
 
-export async function fetchCardsByHP(query: number) {
+export async function fetchCardsByHP(query: string, page: number = 1) {
     noStore();
+    const limit = 30;
+    const offset = (page - 1) * limit
     try {
-        const data = await sql<JSON>`SELECT * FROM cards WHERE data->>'hp' = ${query} ORDER BY data->>'id' LIMIT 30;`;
+        const data = await sql<JSON>`SELECT * FROM cards WHERE data->>'hp' = ${query} ORDER BY data->>'id' LIMIT ${limit} OFFSET ${offset};`;
 
         return data.rows;
     } catch (error) {

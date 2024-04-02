@@ -101,14 +101,14 @@ const truncateName = (name: string, maxLength: number) => {
     }
     return name;
 };
-export default async function Cards({ nameQuery, attackQuery, hpQuery }: { nameQuery: string; attackQuery: string; hpQuery: number })
+export default async function Cards({ nameQuery, attackQuery, hpQuery, currentPage }: { nameQuery: string; attackQuery: string; hpQuery: string; currentPage: number })
 {
     nameQuery = nameQuery ? nameQuery : '';
-    var fetchedCards = await fetchCardsByName(nameQuery);
+    var fetchedCards = await fetchCardsByName(nameQuery, currentPage);
     if (attackQuery) {
-        fetchedCards = await fetchCardsByAttack(attackQuery);
+        fetchedCards = await fetchCardsByAttack(attackQuery, currentPage);
     } else if (hpQuery) {
-        fetchedCards = await fetchCardsByHP(hpQuery);
+        fetchedCards = await fetchCardsByHP(hpQuery, currentPage);
     }
     const cardsJson = JSON.stringify(fetchedCards);
     let cardsObj: Card[] = JSON.parse(cardsJson);
@@ -176,7 +176,7 @@ export default async function Cards({ nameQuery, attackQuery, hpQuery }: { nameQ
                         </div>
                     </div>
                 </div>
-            ))}     
+            ))}
         </div>
     );
 }

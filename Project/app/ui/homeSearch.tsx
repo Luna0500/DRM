@@ -18,6 +18,7 @@ export default function HomeSearch({ placeholder }: { placeholder: string }) {
 
         if (term) {
             params.set(selectedSearchType.queryType, term);
+            params.set('page', '1');
         } else {
             params.delete(selectedSearchType.queryType);
         }
