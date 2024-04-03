@@ -5,6 +5,11 @@ import { unstable_noStore as noStore } from 'next/cache';
 import { Listing } from '@/app/ui/listings/listingInterface'
 import { useRouter } from 'next/navigation'
 
+interface CardRow {
+    total_count: string;
+    data: JSON[];
+}
+
 export async function fetchCards() {
     // Add noStore() here to prevent the response from being cached.
     // This is equivalent to in fetch(..., {cache: 'no-store'}).
@@ -32,9 +37,11 @@ export async function fetchCardsByName(query: string, page: number = 1) {
 
         // const data = await sql <JSON>`SELECT * FROM cards WHERE id = 'swsh6-61';`;
 
-        const data = await sql <JSON>`SELECT * FROM cards WHERE data->>'name' ILIKE ${`%${query}%`} ORDER BY data->>'id' LIMIT ${limit} OFFSET ${offset};`;
+        const result = await sql <CardRow>`SELECT COUNT(*) OVER() AS total_count, * FROM cards WHERE data->>'name' ILIKE ${`%${query}%`} ORDER BY data->>'id' LIMIT ${limit} OFFSET ${offset};`;
+        const totalCount = result.rows.length > 0 ? parseInt(result.rows[0].total_count, 10) : 0;
+        const rows = result.rows;
 
-        return data.rows;
+        return { totalCount, rows };
     } catch (error) {
         console.error('Database Error:', error);
         throw new Error('Failed to fetch card data.');
@@ -46,12 +53,30 @@ export async function fetchCardsByAttack(query: string, page: number = 1) {
     const limit = 30;
     const offset = (page - 1) * limit
     try {
-        const data = await sql<JSON>`SELECT * FROM cards WHERE data->>'attacks' ILIKE ${`%${query}%`} ORDER BY data->>'id' LIMIT ${limit} OFFSET ${offset};`;
+        const result = await sql<CardRow>`SELECT COUNT(*) OVER() AS total_count, * FROM cards WHERE data->>'attacks' ILIKE ${`%${query}%`} ORDER BY data->>'id' LIMIT ${limit} OFFSET ${offset};`;
+        const totalCount = result.rows.length > 0 ? parseInt(result.rows[0].total_count, 10) : 0;
+        const rows = result.rows;
 
-        return data.rows;
+        return { totalCount, rows };
     } catch (error) {
         console.error('Database Error:', error);
         throw new Error('Failed to fetch card data by attack.');
+    }
+}
+
+export async function fetchCardsByHP(query: string, page: number = 1) {
+    noStore();
+    const limit = 30;
+    const offset = (page - 1) * limit
+    try {
+        const result = await sql<CardRow>`SELECT COUNT(*) OVER() AS total_count, * FROM cards WHERE data->>'hp' = ${query} ORDER BY data->>'id' LIMIT ${limit} OFFSET ${offset};`;
+        const totalCount = result.rows.length > 0 ? parseInt(result.rows[0].total_count, 10) : 0;
+        const rows = result.rows;
+
+        return { totalCount, rows };
+    } catch (error) {
+        console.error('Database Error:', error);
+        throw new Error('Failed to fetch card data by hit points.');
     }
 }
 
@@ -69,20 +94,6 @@ export async function fetchCardByID(query: string) {
     } catch (error) {
         console.error('Database Error:', error);
         throw new Error('Failed to fetch card data.');
-    }
-}
-
-export async function fetchCardsByHP(query: string, page: number = 1) {
-    noStore();
-    const limit = 30;
-    const offset = (page - 1) * limit
-    try {
-        const data = await sql<JSON>`SELECT * FROM cards WHERE data->>'hp' = ${query} ORDER BY data->>'id' LIMIT ${limit} OFFSET ${offset};`;
-
-        return data.rows;
-    } catch (error) {
-        console.error('Database Error:', error);
-        throw new Error('Failed to fetch card data by hit points.');
     }
 }
 
