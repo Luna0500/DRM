@@ -84,11 +84,19 @@
 }
 
 .topbar-buttons {
-    border: 2px solid white; 
-    border-radius: 8px; 
+    
+    border-radius: 8px;
     padding: 4px 8px;
+    background-color: rgb(0, 189, 88);
+    color: black;
 }
 
 .colorbg {
     background-color: #daffb5;
+}
+.pagination-buttons {
+    border-radius: 8px;
+    padding: 4px 8px;
+    margin: 5px;
+    background-color: rgb(0, 189, 88);
 }

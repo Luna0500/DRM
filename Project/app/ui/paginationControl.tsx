@@ -28,13 +28,17 @@ export default function PaginationControl({ nameQuery, attackQuery, hpQuery, cur
 
     return (
         <div className="pagination-controls">
-            <button onClick={() => navigateToPage(currentPage - 1)} disabled={currentPage <= 1}>
+            
+            <button className="pagination-buttons hover:bg-[#02ad52]" onClick={() => navigateToPage(currentPage - 1)} disabled={currentPage <= 1}>
                 Previous
             </button>
-            <span>Page {currentPage}</span>
-            <button onClick={() => navigateToPage(currentPage + 1)}>
+            
+            <span> Page {currentPage}</span>
+            
+            <button className="pagination-buttons hover:bg-[#02ad52]" onClick={() => navigateToPage(currentPage + 1)}>
                 Next
-            </button>
+                </button>
+           
         </div>
     )
 }

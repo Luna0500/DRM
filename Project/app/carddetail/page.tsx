@@ -14,7 +14,7 @@ export default async function Page({
 }) {
     const IDQuery = searchParams?.IDQuery || '';
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-blue-100">
+        <main className="colorbg flex min-h-screen flex-col items-center justify-between p-24">
             <h1 className="text-5xl text-black">Card Details</h1>
             <CardDetail IDQuery={IDQuery} />
             <div className="mt-8 flex flex-col items-center"> 

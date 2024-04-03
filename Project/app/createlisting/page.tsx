@@ -8,7 +8,7 @@ export default function Page() {
 
     if (status === "authenticated") {
         return (
-            <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-blue-100">
+            <main className="colorbg flex min-h-screen flex-col items-center justify-between p-24">
                 <h1 className="text-5xl text-black">Create Listing</h1>
                 <CreateListingForm />
             </main>
@@ -16,7 +16,7 @@ export default function Page() {
     }
     else {
         return (
-            <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-blue-100">
+            <main className="colorbg flex min-h-screen flex-col items-center justify-between p-24">
                 <h1 className="text-5xl text-black">You Must Login to Create a Listing!</h1>
             </main>
         )
