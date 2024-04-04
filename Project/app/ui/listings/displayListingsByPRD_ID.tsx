@@ -1,10 +1,24 @@
-import '@/app/cardlist/homePage.css';
-import { fetchListingsByPRD_ID } from '@/app/lib/data';
-import { Listing } from '@/app/ui/listings/listingInterface';
+'use client'
 
-export default async function ListingsByPRD_ID({ IDQuery }: { IDQuery: string; }) {
-    // Fetch initial listings data
-    const listingsData: any[] = await fetchListingsByPRD_ID(IDQuery);
+import '@/app/cardlist/homePage.css';
+import { fetchListingsByPRD_ID, addToCart } from '@/app/lib/data';
+import { Listing } from '@/app/ui/listings/listingInterfaces';
+import { useSession } from "next-auth/react";
+
+const handleAddToCart = async (LST_ID: number, userEmail: string) => {
+    try {
+        const CL_Email = userEmail;
+        const CL_Quantity = 1;
+        const cartItem = await addToCart(LST_ID, CL_Email, CL_Quantity);
+        alert('Added to cart!');
+    } catch (error) {
+        alert('Failed to add to cart! Listing is likely already added!')
+        console.error('Error adding to cart:', error);
+    }
+};
+
+export default function ListingsByPRD_ID({ listingsData }: { listingsData: any }) {
+    
     // Map the fetched data to the Listing interface
     const listings: Listing[] = listingsData.map((item: any) => ({
         LST_ID: item.lst_id,
@@ -18,6 +32,8 @@ export default async function ListingsByPRD_ID({ IDQuery }: { IDQuery: string; }
         LST_Condition: item.lst_condition,
         LST_ShipOption: item.lst_shipoption
     }));
+    const { data: session, status } = useSession();
+    const userEmail = session?.user?.email || ''
     return (
         <div className="flex min-h-screen flex-wrap items-center justify-between p-24">
             {listings.map(({ LST_ID, PRD_ID, LST_Time, LST_Status, LST_Price, LST_Quantity, LST_Location, LST_Condition, LST_ShipOption }) => (
@@ -30,9 +46,16 @@ export default async function ListingsByPRD_ID({ IDQuery }: { IDQuery: string; }
                     <p>Location: {LST_Location}</p>
                     <p>Condition: {LST_Condition}</p>
                     <p>Shipping Option: {LST_ShipOption}</p>
-                    <a href={"/updatelisting?IDQuery=" + LST_ID}>
-                        <button className="edit-listing">Edit Listing</button>
-                    </a>
+                    {status === 'authenticated' && (
+                        <>
+                            <a href={"/updatelisting?IDQuery=" + LST_ID}>
+                                <button className="edit-listing">Edit Listing</button>
+                            </a>
+                            <button onClick={() => handleAddToCart(LST_ID, userEmail)} className="add-to-cart">
+                                Add to Cart
+                            </button>
+                        </>
+                    )}
                 </div>
             ))}
         </div>

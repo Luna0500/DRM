@@ -10,3 +10,10 @@ export interface Listing {
     LST_Condition: string;
     LST_ShipOption: string;
 }
+
+export interface CartListing {
+    CL_ID: number;
+    LST_ID: number;
+    CL_Email: string;
+    CL_Quantity: number;
+}

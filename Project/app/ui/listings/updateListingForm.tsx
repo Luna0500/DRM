@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { SubmitButton } from '@/app/ui/submitButton';
 import { updateListingServerAction } from '@/app/actions';
 import { useRouter } from 'next/navigation'
-import { Listing } from '@/app/ui/listings/listingInterface'
+import { Listing } from '@/app/ui/listings/listingInterfaces'
 import { list } from 'postcss';
 import { useSession } from "next-auth/react";
 

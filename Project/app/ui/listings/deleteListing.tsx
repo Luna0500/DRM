@@ -4,7 +4,7 @@ import '@/app/cardlist/homePage.css';
 import { deleteListing } from '@/app/lib/data';
 import { useRouter } from 'next/navigation';
 import { useSession } from "next-auth/react";
-import { Listing } from '@/app/ui/listings/listingInterface';
+import { Listing } from '@/app/ui/listings/listingInterfaces';
 
 const DeleteListing = ({ listing }: { listing: Listing }) => {
     const { data: session } = useSession();

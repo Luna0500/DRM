@@ -2,7 +2,7 @@
 
 import { sql } from '@vercel/postgres';
 import { unstable_noStore as noStore } from 'next/cache';
-import { Listing } from '@/app/ui/listings/listingInterface'
+import { Listing } from '@/app/ui/listings/listingInterfaces'
 import { useRouter } from 'next/navigation'
 
 interface CardRow {
@@ -150,3 +150,46 @@ export async function deleteListing(listingId: number) {
     return data.rows[0];
 }
 
+export async function fetchListingsByIDs(lstIds: any) {
+    try {
+        const data = await sql<JSON>`
+            SELECT * FROM listing WHERE LST_ID = ANY(${lstIds})
+        `;
+        return data.rows;
+    } catch (error) {
+        console.error('Database Error:', error);
+        throw new Error('Failed to fetch listings.');
+    }
+}
+
+export async function addToCart(LST_ID: number, CL_Email: string, CL_Quantity: number) {
+    noStore();
+    try {
+        const data = await sql<JSON>`INSERT INTO cart_listing (LST_ID, CL_Email, CL_Quantity) VALUES (${LST_ID}, ${CL_Email}, ${CL_Quantity}) RETURNING *;`;
+        return data.rows[0];
+    } catch (error) {
+        console.error('Database Error:', error);
+        throw new Error('Failed to add to cart.');
+    }
+}
+
+export async function removeFromCart(LST_ID: number, CL_Email: string) {
+    noStore();
+    try {
+        await sql`DELETE FROM cart_listing WHERE LST_ID = ${LST_ID} AND CL_Email = ${CL_Email};`;
+    } catch (error) {
+        console.error('Database Error:', error);
+        throw new Error('Failed to remove item from cart.');
+    }
+}
+
+export async function fetchCartListingsByCL_Email(query: string) {
+    noStore();
+    try {
+        const data = await sql<JSON>`SELECT * FROM cart_listing WHERE CL_Email = ${query};`;
+        return data.rows;
+    } catch (error) {
+        console.error('Database Error:', error);
+        throw new Error('Failed to fetch listing data.');
+    }
+}

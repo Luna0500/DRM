@@ -34,11 +34,14 @@ export default function Header() {
                 {status === "authenticated" ? (
                     <>
                         <p>Signed in as {userEmail + "- -"}</p>
-                        <button className="topbar-buttons " onClick={() => signOut()}>Sign out</button>
+                        <button className="topbar-buttons mr-4" onClick={() => signOut()}>Sign out</button>
                     </>
                 ) : (
-                        <button className="topbar-buttons " onClick={() => signIn("GitHub")}>Sign in</button>
+                        <button className="topbar-buttons mr-4" onClick={() => signIn("GitHub")}>Sign in</button>
                 )}
+                <a href="/cart" className="topbar-buttons mr-4">
+                    Cart
+                </a>
             </div>
         </div>
     )
