@@ -100,3 +100,11 @@
     margin: 5px;
     background-color: rgb(0, 189, 88);
 }
+.border-hp {
+    width: 1200px;
+    height: 415px;
+    border: 10px solid green;
+    background-color: #eafae1;
+    padding: 10px;
+    margin: 10px;
+}
