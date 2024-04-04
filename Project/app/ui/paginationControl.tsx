@@ -4,7 +4,7 @@ import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/24/solid'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { SearchTypeSelector, searchTypes } from '@/app/ui/searchTypeSelector'
 
 export default function PaginationControl({ nameQuery, attackQuery, hpQuery, currentPage, itemCount }: { nameQuery: string; attackQuery: string; hpQuery: string; currentPage: number; itemCount: number }) {
@@ -15,6 +15,10 @@ export default function PaginationControl({ nameQuery, attackQuery, hpQuery, cur
     const inputRef = useRef<HTMLInputElement>(null);
 
     const totalPages = Math.ceil(itemCount / 30);
+
+    useEffect(() => {
+        setInputPage(currentPage.toString());
+    }, [currentPage]);
 
     const navigateToPage = (page: number) => {
         if (!isNaN(page) && page >= 1 && page <= totalPages) {
