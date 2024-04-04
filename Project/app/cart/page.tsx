@@ -9,7 +9,6 @@ export default async function Page() {
     const userEmail = session?.user?.email || ''
 
     const cartListingsData = await fetchCartListingsByCL_Email(userEmail);
-    console.log(cartListingsData)
     const cartListings: CartListing[] = cartListingsData.map((item: any) => ({
         CL_ID: item.cl_id,
         LST_ID: item.lst_id,
@@ -17,9 +16,7 @@ export default async function Page() {
         CL_Quantity: item.cl_quantity
     }));
     const lstIds = cartListings.map(item => item.LST_ID);
-    console.log(lstIds)
     const listingsData = await fetchListingsByIDs(lstIds);
-    console.log(listingsData)
     const listings: Listing[] = listingsData.map((item: any) => ({
         LST_ID: item.lst_id,
         LST_UserEmail: item.lst_useremail,

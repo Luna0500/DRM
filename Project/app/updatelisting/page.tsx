@@ -1,7 +1,7 @@
 import '@/app/cardlist/homePage.css';
 import UpdateListingForm from '@/app/ui/listings/updateListingForm';
 import { fetchListingByLST_ID } from '@/app/lib/data';
-import { Listing } from '@/app/ui/listings/listingInterface'
+import { Listing } from '@/app/ui/listings/listingInterfaces'
 
 export default async function Page({
     searchParams,
