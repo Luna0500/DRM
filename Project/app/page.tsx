@@ -8,6 +8,7 @@ import Search from '@/app/ui/search';
 import { fetchCardsByName, fetchCardsByAttack, fetchCardsByHP } from '@/app/lib/data';
 import React from 'react';
 import heropic from '@/public/zygardehero.jpg'
+import heropic2 from '@/public/zygardehero2.webp'
 import { useSession, signIn, signOut } from "next-auth/react"
 export default function Home() {
     const { data: session, status } = useSession()
@@ -17,23 +18,23 @@ export default function Home() {
       <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-[#daffb5]">
           <div className="border-hp">
               <div className="flex justify-between">
-                  <div>  <h1 className="text-4xl flex" >Welcome to Zycardes</h1>
+                  <div>  <h1 className="text-4xl flex" >Welcome to ZyCardes</h1>
                       <div className="divide-y">
                           <p className="flex">Welcome to our e-commerce website to buy, view and sell cards. To get started click on the button below</p>
                           {status === "authenticated" ? (
                               <>
                                   <p>Signed in as {userEmail + "- -"}</p>
-                                  <button className="topbar-buttons mr-4" onClick={() => signOut()}>Sign out</button>
+                                  <button className="flex homesign-in mr-4 text-2xl" onClick={() => signOut()}>Sign out</button>
                               </>
                           ) : (
-                              <button className="topbar-buttons mr-4" onClick={() => signIn("GitHub")}>Sign in</button>
+                              <button className="homesign-in mr-4 text-2xl" onClick={() => signIn("GitHub")}>Sign in</button>
                           )}
                       </div>
                   </div>            
                   <Image
                       unoptimized
-                      src={heropic}
-                      alt="heropic"
+                      src={heropic2}
+                      alt="heropic2"
                       width={850}
                       priority
                       className="flex"
