@@ -10,6 +10,7 @@ export default function Page() {
         return (
             <main className="colorbg flex min-h-screen flex-col items-center justify-between p-24">
                 <h1 className="text-5xl text-black">Create Listing</h1>
+                <p></p>
                 <CreateListingForm />
             </main>
         );
@@ -21,4 +22,5 @@ export default function Page() {
             </main>
         )
     }
+
 }
