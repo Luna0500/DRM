@@ -10,22 +10,30 @@ interface CardRow {
     data: JSON[];
 }
 
-export async function fetchCards() {
-    // Add noStore() here to prevent the response from being cached.
-    // This is equivalent to in fetch(..., {cache: 'no-store'}).
+export async function fetchCards(queryParams: { name?: string; attack?: string; hp?: string; }, page: number = 1) {
     noStore();
+    const limit = 30;
+    const offset = (page - 1) * limit;
+
+    // Prepare queries with default values for SQL injection protection
+    const nameQuery = queryParams.name ? `%${queryParams.name}%` : '%%'; // Matches anything if not specified
+    const attackQuery = queryParams.attack ? `%${queryParams.attack}%` : '%%'; // Matches anything if not specified
+    const hpQuery = queryParams.hp ? queryParams.hp : '%'; // Matches anything if not specified
+
     try {
+        // Using a fixed line for the SQL query as per requirement
+        const result = await sql<CardRow>`SELECT COUNT(*) OVER() AS total_count, * FROM cards WHERE data->>'name' ILIKE ${nameQuery} AND data->>'attacks' ILIKE ${attackQuery} AND data->>'hp' ILIKE ${hpQuery} ORDER BY data->>'id' LIMIT ${limit} OFFSET ${offset};`;
+        const totalCount = result.rows.length > 0 ? parseInt(result.rows[0].total_count, 10) : 0;
+        const rows = result.rows;
 
-        // const data = await sql <JSON>`SELECT * FROM cards WHERE id = 'swsh6-61';`;
-
-        const data = await sql <JSON>`SELECT * FROM cards WHERE data->>'name' = 'Eevee';`;
-
-        return data.rows;
+        return { totalCount, rows };
     } catch (error) {
         console.error('Database Error:', error);
         throw new Error('Failed to fetch card data.');
     }
 }
+
+
 
 export async function fetchCardsByName(query: string, page: number = 1) {
     // Add noStore() here to prevent the response from being cached.

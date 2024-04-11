@@ -2,7 +2,7 @@ import Image from 'next/image';
 import fs from 'fs';
 //import '@/app/cardlist/homePage.css';
 import HomeSearch from '@/app/ui/homeSearch';
-import { fetchCardsByName, fetchCardsByAttack, fetchCardsByHP } from '@/app/lib/data';
+import { fetchCards, fetchCardsByName, fetchCardsByAttack, fetchCardsByHP } from '@/app/lib/data';
 import Cards from '@/app/ui/cardlist/cards';
 import PaginationControl from '@/app/ui/paginationControl'
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -23,18 +23,9 @@ export default async function Page({
     const currentPage = Number(searchParams?.page) || 1;
 
     // Perform your data fetching here based on query parameters
-    var fetchedResult = await fetchCardsByName(nameQuery, currentPage);
+    const fetchedResult = await fetchCards({ name: nameQuery, attack: attackQuery, hp: hpQuery }, currentPage);
     var itemCount = fetchedResult.totalCount; // Assuming fetchCardsByName returns an object with totalCount
     var cards = fetchedResult.rows; // Assuming rows contains the cards data
-    if (attackQuery) {
-        fetchedResult = await fetchCardsByAttack(attackQuery, currentPage);
-        itemCount = fetchedResult.totalCount; // Assuming fetchCardsByName returns an object with totalCount
-        cards = fetchedResult.rows; // Assuming rows contains the cards data
-    } else if (hpQuery) {
-        fetchedResult = await fetchCardsByHP(hpQuery, currentPage);
-        itemCount = fetchedResult.totalCount; // Assuming fetchCardsByName returns an object with totalCount
-        cards = fetchedResult.rows; // Assuming rows contains the cards data
-    }
 
     return (
         <main className="colorbg flex min-h-screen flex-col items-center justify-between p-24">

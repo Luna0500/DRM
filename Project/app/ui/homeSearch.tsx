@@ -14,14 +14,15 @@ export default function HomeSearch({ placeholder }: { placeholder: string }) {
     const [selectedSearchType, setSelectedSearchType] = useState(searchTypes[0]);
 
     const handleSearch = (term: string) => {
-        var params = new URLSearchParams();
+        const params = new URLSearchParams(searchParams.toString());
 
         if (term) {
-            params.set(selectedSearchType.queryType, term);
-            params.set('page', '1');
+            params.set(selectedSearchType.queryType, searchTerm);
         } else {
             params.delete(selectedSearchType.queryType);
         }
+
+        params.set('page', '1');
         replace(`cardlist/?${params.toString()}`);
     };
 
