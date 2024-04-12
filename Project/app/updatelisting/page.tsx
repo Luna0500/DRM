@@ -29,7 +29,7 @@ export default async function Page({
     const listing = listingMap[0];
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-blue-100">
+        <main className="colorbg flex min-h-screen flex-col items-center justify-between p-24">
             <h1 className="text-5xl text-black">Create Listing</h1>
             <UpdateListingForm listing={listing} />
         </main>
