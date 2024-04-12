@@ -33,6 +33,10 @@ export default function DisplayCartListings({ listings, userEmail }: { listings:
                     <button className="bg-red-700 hover:bg-red-800" onClick={() => handleRemoveFromCart(LST_ID, userEmail)}>
                         Remove From Cart
                     </button>
+                    <button
+                        className="topbar-buttons mr-4 focus:outline-none"> 
+                        Buy Now
+                    </button>
                 </div>
             ))}
         </div>
