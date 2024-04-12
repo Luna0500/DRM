@@ -89,6 +89,9 @@ const UpdateListingForm = ({ listing }: { listing: Listing; }) => {
                 <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font py-2 px-4 rounded">
                     Update
                 </button>
+                <a href={"/deletelisting?IDQuery=" + listing.LST_ID}>
+                    <button className="delete-listing">Delete Listing</button>
+                </a>
             </form>
         </div>
     );
