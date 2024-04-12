@@ -17,7 +17,7 @@ const CreateListingForm = () => {
         LST_Price: '',
         LST_Quantity: '',
         LST_Location: '',
-        LST_Condition: '', // Change to dropdown
+        LST_Condition: '', 
         LST_ShipOption: '',
     };
 
@@ -74,9 +74,9 @@ const CreateListingForm = () => {
                     <select name="LST_Condition" value={formData.LST_Condition} onChange={handleSelectChange} className="form-select w-full px-4 py-2 bg-gray-100 border border-black text-left">
                         <option value="">Select Condition</option>
                         <option value="Near Mint or Better">Near Mint or Better</option>
-                        <option value="Lightly Played (Excellent)">Lightly Played (Excellent)</option>
-                        <option value="Moderately Played (Good)">Moderately Played (Very good)</option>
-                        <option value="Heavily Played (Poor)">Heavily Played (Poor)</option>
+                        <option value="Lightly Played--Excellent">Lightly Played (Excellent)</option>
+                        <option value="Moderately Played--Good">Moderately Played (Very good)</option>
+                        <option value="Heavily Played--Poor">Heavily Played (Poor)</option>
                         </select>
 
                 </div>

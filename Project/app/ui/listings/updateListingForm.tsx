@@ -32,7 +32,7 @@ const UpdateListingForm = ({ listing }: { listing: Listing; }) => {
             router.push('carddetail?IDQuery=' + listing.PRD_ID);
         } catch (error) {
             // Handle error (e.g., display error message)
-            console.error('Error creating listing:', error);
+            console.error('Error updating listing:', error);
         }
     };
 
@@ -53,26 +53,43 @@ const UpdateListingForm = ({ listing }: { listing: Listing; }) => {
     }
 
     return (
-        <div>
-        <form onSubmit={handleSubmit}>
-            <input type="text" name="PRD_ID" placeholder={formData.PRD_ID} value={formData.PRD_ID} onChange={handleChange} />
-            <select name="LST_Status" value={formData.LST_Status} onChange={handleSelectChange}>
-                <option value="">Select Status</option>
-                <option value="Active">Active</option>
-                <option value="Inactive">Inactive</option>
-            </select>
-            <input type="text" name="LST_Price" placeholder={formData.LST_Price.toString()} value={formData.LST_Price} onChange={handleChange} />
-            <input type="number" name="LST_Quantity" placeholder={formData.LST_Quantity.toString()} value={formData.LST_Quantity} onChange={handleChange} />
-            <input type="text" name="LST_Location" placeholder={formData.LST_Location} value={formData.LST_Location} onChange={handleChange} />
-            <input type="text" name="LST_Condition" placeholder={listing.LST_Condition} value={formData.LST_Condition} onChange={handleChange} />
-            <input type="text" name="LST_ShipOption" placeholder={listing.LST_ShipOption} value={formData.LST_ShipOption} onChange={handleChange} />
-            <button type="submit">
-                Add
-            </button>
-        </form>
-        <a href={"/deletelisting?IDQuery=" + listing.LST_ID}>
-            <button className="delete-listing">Delete Listing</button>
-        </a>
+        <div className="rounded-lg bg-white p-6 overflow-auto">
+            <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-10">
+                <div className="mb-4">
+                    <input type="text" name="PRD_ID" placeholder="Product ID" value={formData.PRD_ID} onChange={handleChange} className="form-input w-full px-4 py-2 bg-gray-100 border border-black text-left" />
+                </div>
+                <div className="mb-4">
+                    <select name="LST_Status" value={formData.LST_Status} onChange={handleSelectChange} className="form-select w-full px-4 py-2 bg-gray-100 border border-black text-left">
+                        <option value="">Select Status</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                </div>
+                <div className="mb-4">
+                    <input type="text" name="LST_Price" placeholder="Price" value={formData.LST_Price} onChange={handleChange} className="form-input w-full px-4 py-2 bg-gray-100 border border-black text-left" />
+                </div>
+                <div className="mb-4">
+                    <input type="number" name="LST_Quantity" placeholder="Quantity" value={formData.LST_Quantity} onChange={handleChange} className="form-input w-full px-4 py-2 bg-gray-100 border border-black text-left" />
+                </div>
+                <div className="mb-4">
+                    <input type="text" name="LST_Location" placeholder="Location" value={formData.LST_Location} onChange={handleChange} className="form-input w-full px-4 py-2 bg-gray-100 border border-black text-left" />
+                </div>
+                <div className="mb-4">
+                    <select name="LST_Condition" value={formData.LST_Condition} onChange={handleSelectChange} className="form-select w-full px-4 py-2 bg-gray-100 border border-black text-left">
+                        <option value="">Select Condition</option>
+                        <option value="Near Mint or Better">Near Mint or Better</option>
+                        <option value="Lightly Played--Excellent">Lightly Played (Excellent)</option>
+                        <option value="Moderately Played--Good">Moderately Played (Good)</option>
+                        <option value="Heavily Played--Poor">Heavily Played (Poor)</option>
+                    </select>
+                </div>
+                <div className="mb-4">
+                    <input type="text" name="LST_ShipOption" placeholder="Shipping Option" value={formData.LST_ShipOption} onChange={handleChange} className="form-input w-full px-4 py-2 bg-gray-100 border border-black text-left" />
+                </div>
+                <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font py-2 px-4 rounded">
+                    Update
+                </button>
+            </form>
         </div>
     );
 };
