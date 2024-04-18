@@ -67,7 +67,7 @@ export default function Home() {
                         </span>
                     </h2>
                     <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-gray-800`}>
-                        A card list starter page.
+                        Check out the cards!
                     </p>
                 </a>
 
@@ -84,6 +84,37 @@ export default function Home() {
                     </h2>
                     <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-gray-800`}>
                         Look at your cart!
+                    </p>
+                </a>
+
+                <a
+                    href="/account"
+                    className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100"
+                    rel="noopener noreferrer"
+                >
+                    <h2 className={`mb-3 text-2xl font-semibold text-gray-800`}>
+                        Account{' '}
+                        <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                            -&gt;
+                        </span>
+                    </h2>
+                    <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-gray-800`}>
+                        Check out your account!
+                    </p>
+                </a>
+                <a
+                    href="/orderhistory"
+                    className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100"
+                    rel="noopener noreferrer"
+                >
+                    <h2 className={`mb-3 text-2xl font-semibold text-gray-800`}>
+                        Order History{' '}
+                        <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                            -&gt;
+                        </span>
+                    </h2>
+                    <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-gray-800`}>
+                        take a look at your order history!
                     </p>
                 </a>
 
