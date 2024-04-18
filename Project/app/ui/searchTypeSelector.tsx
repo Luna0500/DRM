@@ -14,21 +14,14 @@ interface SearchType {
 }
 
 export const searchTypes = [
-    {
-        id: 1,
-        name: 'Name',
-        queryType: 'nameQuery',
-    },
-    {
-        id: 2,
-        name: 'Attacks',
-        queryType: 'attackQuery',
-    },
-    {
-        id: 3,
-        name: 'Hit Points',
-        queryType: 'hpQuery',
-    },
+    { id: 1, name: 'Name', queryType: 'nameQuery' },
+    { id: 2, name: 'Attacks', queryType: 'attackQuery' },
+    { id: 3, name: 'Hit Points', queryType: 'hpQuery' },
+    { id: 4, name: 'Subtypes', queryType: 'subtypesQuery' },
+    { id: 5, name: 'Types', queryType: 'typesQuery' },
+    { id: 6, name: 'Number', queryType: 'numberQuery' },
+    { id: 7, name: 'Artist', queryType: 'artistQuery' },
+    { id: 8, name: 'Rarity', queryType: 'rarityQuery' }
 ]
 
 function classNames(...classes: string[]) {
