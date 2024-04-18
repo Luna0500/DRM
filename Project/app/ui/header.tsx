@@ -34,6 +34,7 @@ export default function Header() {
                         <a href="/" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Home</a>
                         <a href="/cardlist" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Cards</a>
                         <a href="/createlisting" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">New Listing</a>
+                        <a href="/orderhistory" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Order History</a>
                     </div>
                 )}
             </div>

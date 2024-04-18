@@ -6,6 +6,7 @@ import { Listing, CartListing } from '@/app/ui/listings/listingInterfaces';
 import { useSession } from "next-auth/react";
 import { getServerSession } from 'next-auth';
 
+
 const handleRemoveFromCart = async (LST_ID: number, userEmail: string) => {
     try {
         const CL_Email = userEmail;
@@ -17,9 +18,8 @@ const handleRemoveFromCart = async (LST_ID: number, userEmail: string) => {
 };
 
 export default function DisplayCartListings({ listings, userEmail }: { listings: Listing[]; userEmail: string }) {
-
     return (
-        <div className="flex min-h-screen flex-wrap items-center justify-between p-24">
+        <div className="flex min-h-screen flex-wrap items-center justify-between p-24">    
             {listings.map(({ LST_ID, PRD_ID, LST_Time, LST_Status, LST_Price, LST_Quantity, LST_Location, LST_Condition, LST_ShipOption }) => (
                 <div key={LST_ID} className="card h-[20rem] bg-white border border-black p-4 mb-8">
                     <p>Product ID: {PRD_ID}</p>

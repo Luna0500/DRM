@@ -1,4 +1,4 @@
-﻿import DisplayCartListings from '@/app/ui/listings/displayCartListings';
+import DisplayCartListings from '@/app/ui/listings/displayCartListings';
 import '@/app/cardlist/homePage.css';
 import { fetchCartListingsByCL_Email, fetchListingsByIDs } from '@/app/lib/data';
 import { Listing, CartListing } from '@/app/ui/listings/listingInterfaces';
