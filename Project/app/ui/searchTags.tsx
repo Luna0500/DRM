@@ -7,16 +7,15 @@ const SearchTags = () => {
     const searchParams = useSearchParams();
     const { replace } = useRouter();
 
-    const queries = {
-        nameQuery: searchParams.get('nameQuery'),
-        attackQuery: searchParams.get('attackQuery'),
-        hpQuery: searchParams.get('hpQuery'),
-        subtypesQuery: searchParams.get('subtypesQuery'),
-        typesQuery: searchParams.get('typesQuery'),
-        numberQuery: searchParams.get('numberQuery'),
-        artistQuery: searchParams.get('artistQuery'),
-        rarityQuery: searchParams.get('rarityQuery')
-    };
+    const nameQuery = searchParams.get('nameQuery');
+    const attackQuery = searchParams.get('attackQuery');
+    const hpQuery = searchParams.get('hpQuery');
+    const subtypesQuery = searchParams.get('subtypesQuery');
+    const typesQuery = searchParams.get('typesQuery');
+    const numberQuery = searchParams.get('numberQuery');
+    const artistQuery = searchParams.get('artistQuery');
+    const rarityQuery = searchParams.get('rarityQuery');
+
 
     const removeSearchParam = (param: string) => {
         const params = new URLSearchParams(searchParams.toString());
@@ -27,12 +26,54 @@ const SearchTags = () => {
 
     return (
         <div className="flex flex-wrap gap-2 mb-4">
-            {Object.entries(queries).map(([key, value]) => value && (
-                <span key={key} className="bg-blue-200 text-blue-800 rounded-full px-4 py-1 cursor-pointer"
-                    onClick={() => removeSearchParam(key)}>
-                    {key.replace('Query', '')}: {value} <span className="font-bold"> x</span>
+            {nameQuery && (
+                <span className="bg-blue-200 text-blue-800 rounded-full px-4 py-1 cursor-pointer"
+                    onClick={() => removeSearchParam('nameQuery')}>
+                    Name: {nameQuery} <span className="font-bold"> x</span>
                 </span>
-            ))}
+            )}
+            {attackQuery && (
+                <span className="bg-blue-200 text-blue-800 rounded-full px-4 py-1 cursor-pointer"
+                    onClick={() => removeSearchParam('attackQuery')}>
+                    Attack: {attackQuery} <span className="font-bold"> x</span>
+                </span>
+            )}
+            {hpQuery && (
+                <span className="bg-blue-200 text-blue-800 rounded-full px-4 py-1 cursor-pointer"
+                    onClick={() => removeSearchParam('hpQuery')}>
+                    HP: {hpQuery} <span className="font-bold"> x</span>
+                </span>
+            )}
+            {subtypesQuery && (
+                <span className="bg-blue-200 text-blue-800 rounded-full px-4 py-1 cursor-pointer"
+                    onClick={() => removeSearchParam('subtypesQuery')}>
+                    Subtypes: {subtypesQuery} <span className="font-bold"> x</span>
+                </span>
+            )}
+            {typesQuery && (
+                <span className="bg-blue-200 text-blue-800 rounded-full px-4 py-1 cursor-pointer"
+                    onClick={() => removeSearchParam('typesQuery')}>
+                    Types: {typesQuery} <span className="font-bold"> x</span>
+                </span>
+            )}
+            {numberQuery && (
+                <span className="bg-blue-200 text-blue-800 rounded-full px-4 py-1 cursor-pointer"
+                    onClick={() => removeSearchParam('numberQuery')}>
+                    Number: {numberQuery} <span className="font-bold"> x</span>
+                </span>
+            )}
+            {artistQuery && (
+                <span className="bg-blue-200 text-blue-800 rounded-full px-4 py-1 cursor-pointer"
+                    onClick={() => removeSearchParam('artistQuery')}>
+                    Artist: {artistQuery} <span className="font-bold"> x</span>
+                </span>
+            )}
+            {rarityQuery && (
+                <span className="bg-blue-200 text-blue-800 rounded-full px-4 py-1 cursor-pointer"
+                    onClick={() => removeSearchParam('rarityQuery')}>
+                    Rarity: {rarityQuery} <span className="font-bold"> x</span>
+                </span>
+            )}
         </div>
     );
 };
