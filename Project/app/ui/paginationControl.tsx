@@ -7,7 +7,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useState, useRef, useEffect } from 'react';
 import { SearchTypeSelector, searchTypes } from '@/app/ui/searchTypeSelector'
 
-export default function PaginationControl({ nameQuery, attackQuery, hpQuery, currentPage, itemCount }: { nameQuery: string; attackQuery: string; hpQuery: string; currentPage: number; itemCount: number }) {
+export default function PaginationControl({ currentPage, itemCount }: { currentPage: number; itemCount: number }) {
     const searchParams = useSearchParams();
     const { replace } = useRouter();
     var params = new URLSearchParams();
@@ -30,6 +30,21 @@ export default function PaginationControl({ nameQuery, attackQuery, hpQuery, cur
             }
             if (searchParams.get('hpQuery')) {
                 params.set('hpQuery', searchParams.get('hpQuery') || '');
+            }
+            if (searchParams.get('subtypesQuery')) {
+                params.set('subtypesQuery', searchParams.get('subtypesQuery') || '');
+            }
+            if (searchParams.get('typesQuery')) {
+                params.set('typesQuery', searchParams.get('typesQuery') || '');
+            }
+            if (searchParams.get('numberQuery')) {
+                params.set('numberQuery', searchParams.get('numberQuery') || '');
+            }
+            if (searchParams.get('artistQuery')) {
+                params.set('artistQuery', searchParams.get('artistQuery') || '');
+            }
+            if (searchParams.get('rarityQuery')) {
+                params.set('rarityQuery', searchParams.get('rarityQuery') || '');
             }
             params.set('page', page.toString());
             setInputPage(page.toString());

@@ -10,19 +10,32 @@ interface CardRow {
     data: JSON[];
 }
 
-export async function fetchCards(queryParams: { name?: string; attack?: string; hp?: string; }, page: number = 1) {
+export async function fetchCards(queryParams: {
+    name?: string;
+    attack?: string;
+    hp?: string;
+    subtypes?: string;
+    types?: string;
+    number?: string;
+    artist?: string;
+    rarity?: string;
+}, page: number = 1) {
     noStore();
     const limit = 30;
     const offset = (page - 1) * limit;
 
-    // Prepare queries with default values for SQL injection protection
-    const nameQuery = queryParams.name ? `%${queryParams.name}%` : '%%'; // Matches anything if not specified
-    const attackQuery = queryParams.attack ? `%${queryParams.attack}%` : '%%'; // Matches anything if not specified
-    const hpQuery = queryParams.hp ? queryParams.hp : '%'; // Matches anything if not specified
+    // Match anything if not specified
+    const nameQuery = queryParams.name ? `%${queryParams.name}%` : '%%'; 
+    const attackQuery = queryParams.attack ? `%${queryParams.attack}%` : '%%';
+    const hpQuery = queryParams.hp ? queryParams.hp : '%';
+    const subtypesQuery = queryParams.subtypes ? `%${queryParams.subtypes}%` : '%%';
+    const typesQuery = queryParams.types ? `%${queryParams.types}%` : '%%';
+    const numberQuery = queryParams.number ? `%${queryParams.number}%` : '%%';
+    const artistQuery = queryParams.artist ? `%${queryParams.artist}%` : '%%';
+    const rarityQuery = queryParams.rarity ? `%${queryParams.rarity}%` : '%%';
 
     try {
-        // Using a fixed line for the SQL query as per requirement
-        const result = await sql<CardRow>`SELECT COUNT(*) OVER() AS total_count, * FROM cards WHERE data->>'name' ILIKE ${nameQuery} AND data->>'attacks' ILIKE ${attackQuery} AND data->>'hp' ILIKE ${hpQuery} ORDER BY data->>'id' LIMIT ${limit} OFFSET ${offset};`;
+        const result = await sql<CardRow>`SELECT COUNT(*) OVER() AS total_count, * FROM cards WHERE data->>'name' ILIKE ${nameQuery} AND data->>'attacks' ILIKE ${attackQuery} AND data->>'hp' ILIKE ${hpQuery} AND data->>'subtypes' ILIKE ${subtypesQuery} AND data->>'types' ILIKE ${typesQuery} AND data->>'number' ILIKE ${numberQuery} AND data->>'artist' ILIKE ${artistQuery} AND data->>'rarity' ILIKE ${rarityQuery} ORDER BY data->>'id' LIMIT ${limit} OFFSET ${offset};`;
         const totalCount = result.rows.length > 0 ? parseInt(result.rows[0].total_count, 10) : 0;
         const rows = result.rows;
 
