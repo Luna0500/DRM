@@ -7,17 +7,7 @@ import { useSession } from "next-auth/react";
 import { getServerSession } from 'next-auth';
 
 
-const handleRemoveFromCart = async (LST_ID: number, userEmail: string) => {
-    try {
-        const CL_Email = userEmail;
-        const cartItem = await removeFromCart(LST_ID, CL_Email);
-        window.location.reload();
-    } catch (error) {
-        console.error('Error removing from cart:', error);
-    }
-};
-
-export default function DisplayCartListings({ listings, userEmail }: { listings: Listing[]; userEmail: string }) {
+export default function DisplayOHListings({ listings }: { listings: Listing[]; }) {
     return (
         <div className="flex min-h-screen flex-wrap items-center justify-between p-24">    
             {listings.map(({ LST_ID, PRD_ID, LST_Time, LST_Status, LST_Price, LST_Quantity, LST_Location, LST_Condition, LST_ShipOption }) => (
@@ -30,9 +20,6 @@ export default function DisplayCartListings({ listings, userEmail }: { listings:
                     <p>Location: {LST_Location}</p>
                     <p>Condition: {LST_Condition}</p>
                     <p>Shipping Option: {LST_ShipOption}</p>
-                    <button className="bg-red-700 hover:bg-red-800" onClick={() => handleRemoveFromCart(LST_ID, userEmail)}>
-                        Remove From Cart
-                    </button>
                 </div>
             ))}
         </div>

@@ -1,4 +1,5 @@
 ﻿import DisplayCartListings from '@/app/ui/listings/displayCartListings';
+import CartBuyButton from '@/app/ui/cartBuyButton';
 import '@/app/cardlist/homePage.css';
 import { fetchCartListingsByCL_Email, fetchListingsByIDs } from '@/app/lib/data';
 import { Listing, CartListing } from '@/app/ui/listings/listingInterfaces';
@@ -41,7 +42,7 @@ export default async function Page() {
 
             <h1 className="text-5xl text-black">Shopping Cart</h1>
             <DisplayCartListings listings={listings} userEmail={userEmail} />
-
+            <CartBuyButton listings={listings} userEmail={userEmail} />
 
         </main>
     );

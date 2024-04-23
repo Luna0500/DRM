@@ -171,6 +171,38 @@ export async function deleteListing(listingId: number) {
     return data.rows[0];
 }
 
+export async function createOHListings(listings: Listing[], buyerEmail: any) {
+    try {
+        const LST_Time = new Date().toISOString();
+        listings.forEach(async listing => {
+            const data = await sql<JSON>`INSERT INTO order_history (LST_ID, PRD_ID, LST_UserEmail, LST_Time, LST_Status, LST_Price, LST_Quantity, LST_Location, LST_Condition, LST_ShipOption, OH_BuyerEmail) VALUES (${listing.LST_ID}, ${listing.PRD_ID}, ${listing.LST_UserEmail}, ${LST_Time}, ${listing.LST_Status}, ${listing.LST_Price}, ${listing.LST_Quantity}, ${listing.LST_Location}, ${listing.LST_Condition}, ${listing.LST_ShipOption}, ${buyerEmail}) RETURNING *;`;
+        })
+        listings.forEach(async listing => {
+            const data = await sql<JSON>`DELETE FROM listing WHERE LST_ID = ${listing.LST_ID} RETURNING *;`;
+        })
+    } catch (error) {
+        console.error('Database Error:', error);
+        throw new Error('Failed to create order history listing.');
+    }
+}
+
+export async function deleteOHListing(listingId: number) {
+    const data = await sql<JSON>`DELETE FROM order_history WHERE LST_ID = ${listingId} RETURNING *;`;
+    return data.rows[0];
+}
+
+export async function fetchOHListingsByOH_BuyerEmail(buyerEmail: any) {
+    try {
+        const data = await sql<JSON>`
+            SELECT * FROM order_history WHERE OH_BuyerEmail = ${buyerEmail}
+        `;
+        return data.rows;
+    } catch (error) {
+        console.error('Database Error:', error);
+        throw new Error('Failed to fetch listings.');
+    }
+}
+
 export async function fetchListingsByIDs(lstIds: any) {
     try {
         const data = await sql<JSON>`
@@ -213,4 +245,10 @@ export async function fetchCartListingsByCL_Email(query: string) {
         console.error('Database Error:', error);
         throw new Error('Failed to fetch listing data.');
     }
+}
+
+export async function deleteUserData(userEmail: string) {
+    await sql<JSON>`DELETE FROM order_history WHERE LST_UserEmail = ${userEmail} OR OH_BuyerEmail = ${userEmail};`;
+    await sql<JSON>`DELETE FROM cart_listing WHERE CL_Email = ${userEmail};`;
+    await sql<JSON>`DELETE FROM listing WHERE LST_UserEmail = ${userEmail};`;
 }
