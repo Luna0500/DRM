@@ -20,8 +20,8 @@ const handleBuyCart = async (listings: Listing[], buyerEmail: string, replace: a
 export default function CartBuyButton({ listings, userEmail }: { listings: Listing[]; userEmail: string }) {
     const { replace } = useRouter();
     return (
-        <div className="flex min-h-screen flex-wrap items-center justify-between p-24">
-            <button className="bg-green-700 hover:bg-green-800" onClick={() => handleBuyCart(listings, userEmail, replace)}>
+        <div className="flex flex-wrap items-center justify-between p-24">
+            <button className="topbar-buttons bg-green-700 hover:bg-green-800" onClick={() => handleBuyCart(listings, userEmail, replace)}>
                 Checkout
             </button>
         </div>
