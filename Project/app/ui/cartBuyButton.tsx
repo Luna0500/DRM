@@ -20,8 +20,7 @@ const handleBuyCart = async (listings: Listing[], buyerEmail: string, replace: a
 export default function CartBuyButton({ listings, userEmail }: { listings: Listing[]; userEmail: string }) {
     const { replace } = useRouter();
     return (
-        
-            <button className="topbar-buttons hover:bg-green-800" onClick={() => handleBuyCart(listings, userEmail, replace)}>
+            <button className="buy-button hover:bg-green-800" onClick={() => handleBuyCart(listings, userEmail, replace)}>
                 Checkout
             </button>
     );
