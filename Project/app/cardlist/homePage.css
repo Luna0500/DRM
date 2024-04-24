@@ -121,3 +121,9 @@
     background-color: rgb(0, 189, 88);
     color: black;
 }
+.deleteuser-button {
+    border-radius: 8px;
+    padding: 12px 16px;
+    background-color: red;
+    color: black;
+}

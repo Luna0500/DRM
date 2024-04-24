@@ -20,8 +20,8 @@ const handleDeleteAccount = async (userEmail: string, replace: any) => {
 export default function DeleteAccountButton({ userEmail }: { userEmail: string }) {
     const { replace } = useRouter();
     return (
-        <div className="flex min-h-screen flex-wrap items-center justify-between p-24">
-            <button className="bg-red-700 hover:bg-red-800" onClick={() => handleDeleteAccount(userEmail, replace)}>
+        <div className="flex flex-wrap items-center justify-between">
+            <button className="deleteuser-button bg-red-700 hover:bg-red-800" onClick={() => handleDeleteAccount(userEmail, replace)}>
                 DELETE USER DATA!
             </button>
         </div>
