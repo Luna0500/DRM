@@ -17,7 +17,7 @@ export default function Home() {
                     <div>
                         <h1 className="text-4xl flex text-gray-800">Welcome to ZyCardes</h1>
                         <div className="divide-y">
-                            <p className="flex text-gray-800">Welcome to our e-commerce website to buy, view, and sell Pokemon cards. To get started, create an account using the button below</p>
+                            <p className="flex text-gray-800">Welcome to our e-commerce website to buy, view, and sell Pokemon cards. To get started</p>
                             {status === "authenticated" ? (
                                 <>
                                     <p className="text-gray-800">Signed in as {userEmail + "- -"}</p>

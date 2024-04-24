@@ -16,6 +16,7 @@ export default function Header() {
         <div className="fixed top-0 left-0 right-0 flex justify-between items-center h-24 bg-[#3d3937] text-white px-8 z-30">
             <a href="/" className="mr-4">
                 <Image src={logo} alt="logo" className="w-16 h-16" />
+                ZyCardes
             </a>
 
             <div className="flex-1 flex justify-center items-center">
