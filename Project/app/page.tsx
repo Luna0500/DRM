@@ -17,7 +17,7 @@ export default function Home() {
                     <div>
                         <h1 className="text-4xl flex text-gray-800">Welcome to ZyCardes</h1>
                         <div className="divide-y">
-                            <p className="flex text-gray-800">Welcome to our e-commerce website to buy, view, and sell cards. To get started click on the button below</p>
+                            <p className="flex text-gray-800">Welcome to our e-commerce website to buy, view, and sell Pokemon cards. To get started, create an account using the button below</p>
                             {status === "authenticated" ? (
                                 <>
                                     <p className="text-gray-800">Signed in as {userEmail + "- -"}</p>
@@ -83,7 +83,7 @@ export default function Home() {
                         </span>
                     </h2>
                     <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-gray-800`}>
-                        Look at your cart!
+                        View at your cart!
                     </p>
                 </a>
 
@@ -99,7 +99,7 @@ export default function Home() {
                         </span>
                     </h2>
                     <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-gray-800`}>
-                        Check out your account!
+                        View your account!
                     </p>
                 </a>
                 <a
@@ -114,7 +114,7 @@ export default function Home() {
                         </span>
                     </h2>
                     <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-gray-800`}>
-                        take a look at your order history!
+                       View your order history!
                     </p>
                 </a>
 
