@@ -14,7 +14,7 @@ const CreateListingForm = (props: CreateListingFormProps) => {
     const router = useRouter();
     const { data: session, status } = useSession();
     const userEmail = session?.user?.email;
-    
+    console.log(props.IDQuery);
 
     const initialFormData = {
         PRD_ID: props.IDQuery,
