@@ -21,6 +21,11 @@ export default async function Page({
             <CardDetail IDQuery={IDQuery} />
             <div className="mt-8 flex flex-col items-center"> 
                 <h2 className="text-5xl text-black mb-4">Listings</h2>
+                <a href={"/createlisting?IDQuery=" + IDQuery}>
+                    <button className="userlistings-button bg-green-700 hover:bg-green-800">
+                        Create Listing!
+                    </button>
+                </a>
                 <ListingsByPRD_ID listingsData={listingsData} />
             </div>
         </main>
