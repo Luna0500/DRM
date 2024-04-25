@@ -6,14 +6,18 @@ import { createListingServerAction } from '@/app/actions';
 import { useRouter } from 'next/navigation'
 import { useSession } from "next-auth/react"
 
-const CreateListingForm = (IDQuery: any) => {
+interface CreateListingFormProps {
+    IDQuery: string;
+}
+
+const CreateListingForm = (props: CreateListingFormProps) => {
     const router = useRouter();
     const { data: session, status } = useSession();
     const userEmail = session?.user?.email;
-    const input_PRD_ID = IDQuery.IDQuery.toString();
+    
 
     const initialFormData = {
-        PRD_ID: input_PRD_ID,
+        PRD_ID: props.IDQuery,
         LST_Status: '', // Assuming this is a dropdown/select field
         LST_Price: '',
         LST_Quantity: '',
