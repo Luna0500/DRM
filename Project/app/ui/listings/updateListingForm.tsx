@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation'
 import { Listing } from '@/app/ui/listings/listingInterfaces'
 import { list } from 'postcss';
 import { useSession } from "next-auth/react";
+import '@/app/cardlist/homePage.css'
 
 
 const UpdateListingForm = ({ listing }: { listing: Listing; }) => {
