@@ -247,6 +247,17 @@ export async function fetchCartListingsByCL_Email(query: string) {
     }
 }
 
+export async function fetchListingsByLST_UserEmail(query: string) {
+    noStore();
+    try {
+        const data = await sql<JSON>`SELECT * FROM listing WHERE LST_UserEmail = ${query};`;
+        return data.rows;
+    } catch (error) {
+        console.error('Database Error:', error);
+        throw new Error('Failed to fetch listing data.');
+    }
+}
+
 export async function deleteUserData(userEmail: string) {
     await sql<JSON>`DELETE FROM order_history WHERE LST_UserEmail = ${userEmail} OR OH_BuyerEmail = ${userEmail};`;
     await sql<JSON>`DELETE FROM cart_listing WHERE CL_Email = ${userEmail};`;
