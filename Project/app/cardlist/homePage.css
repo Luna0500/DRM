@@ -81,8 +81,8 @@
 
 .delete-listing {
     border-radius: 8px;
-    padding: 1px 14px;
-    background-color: darkred;
+    padding: 10px 14px;
+    background-color: red;
     color: black;
 }
 
