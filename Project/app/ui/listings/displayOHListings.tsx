@@ -11,7 +11,7 @@ export default function DisplayOHListings({ listings }: { listings: Listing[]; }
     return (
         <div className="flex min-h-screen flex-wrap items-center justify-between p-24">    
             {listings.map(({ LST_ID, PRD_ID, LST_Time, LST_Status, LST_Price, LST_Quantity, LST_Location, LST_Condition, LST_ShipOption }) => (
-                <div key={LST_ID} className="card h-[20rem] bg-white border border-black p-4 mb-8">
+                <div key={LST_ID} className="card h-[20rem] bg-[#eafae1] border border-black p-4 mb-8">
                     <p>Product ID: {PRD_ID}</p>
                     <p>Time: {LST_Time}</p>
                     <p>Status: {LST_Status}</p>
