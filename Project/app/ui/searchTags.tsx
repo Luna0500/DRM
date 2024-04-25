@@ -27,7 +27,7 @@ const SearchTags = () => {
     return (
         <div className="flex flex-wrap gap-2 mb-4">
             {nameQuery && (
-                <span className="bg-blue-200 text-blue-800 rounded-full px-4 py-1 cursor-pointer"
+                <span className="bg-[#eafae1] text-black rounded-full px-4 py-1 cursor-pointer"
                     onClick={() => removeSearchParam('nameQuery')}>
                     Name: {nameQuery} <span className="font-bold"> x</span>
                 </span>

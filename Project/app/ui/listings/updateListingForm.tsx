@@ -54,7 +54,7 @@ const UpdateListingForm = ({ listing }: { listing: Listing; }) => {
     }
 
     return (
-        <div className="rounded-lg bg-white p-6 overflow-auto">
+        <div className="rounded-lg bg-[#eafae1] p-6 overflow-auto">
             <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-10">
                 <div className="mb-4">
                     <input type="text" name="PRD_ID" placeholder="Product ID" value={formData.PRD_ID} onChange={handleChange} className="form-input w-full px-4 py-2 bg-gray-100 border border-black text-left" />
