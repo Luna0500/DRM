@@ -18,7 +18,9 @@ export default function Header() {
                 <Image src={logo} alt="logo" className="w-16 h-16" />
                 
             </a>
-            ZyCardes
+            <a href="/" className="mr-4">
+                ZyCardes
+            </a>
             <div className="flex-1 flex justify-center items-center">
                 <HomeSearch placeholder="Search..." />
             </div>
