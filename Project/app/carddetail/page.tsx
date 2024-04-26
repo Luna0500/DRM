@@ -22,7 +22,7 @@ export default async function Page({
             <div className="mt-8 flex flex-col items-center"> 
                 <h2 className="text-5xl text-black mb-4">Listings</h2>
                 <a href={"/createlisting?IDQuery=" + IDQuery}>
-                    <button className=" bg-[#daffb5] hover:bg-green-700">
+                    <button className=" bg-[#00bd58] hover:bg-green-700">
                         Create Listing!
                     </button>
                 </a>
