@@ -4,6 +4,7 @@ import Search from '@/app/ui/search';
 import { fetchListingsByPRD_ID } from '@/app/lib/data';
 import CardDetail from '@/app/ui/carddetail/carddetails';
 import ListingsByPRD_ID from '@/app/ui/listings/displayListingsByPRD_ID';
+import '@/app/cardlist/homePage.css';
 
 
 export default async function Page({
@@ -22,7 +23,7 @@ export default async function Page({
             <div className="mt-8 flex flex-col items-center"> 
                 <h2 className="text-5xl text-black mb-4">Listings</h2>
                 <a href={"/createlisting?IDQuery=" + IDQuery}>
-                    <button className=" bg-[#00bd58] hover:bg-green-700">
+                    <button className="topbar-buttons hover:bg-green-600">
                         Create Listing!
                     </button>
                 </a>
