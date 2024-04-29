@@ -41,7 +41,7 @@ export default function Home() {
             <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
                 <a
                     href="/createlisting"
-                    className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100"
+                    className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-green-100"
                     rel="noopener noreferrer"
                 >
                     <h2 className={`mb-3 text-2xl font-semibold text-gray-800`}>
@@ -57,7 +57,7 @@ export default function Home() {
 
                 <a
                     href="/cardlist"
-                    className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100"
+                    className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-green-100"
                     rel="noopener noreferrer"
                 >
                     <h2 className={`mb-3 text-2xl font-semibold text-gray-800`}>
@@ -73,7 +73,7 @@ export default function Home() {
 
                 <a
                     href="/cart"
-                    className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100"
+                    className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-green-100"
                     rel="noopener noreferrer"
                 >
                     <h2 className={`mb-3 text-2xl font-semibold text-gray-800`}>
@@ -89,7 +89,7 @@ export default function Home() {
 
                 <a
                     href="/account"
-                    className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100"
+                    className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-green-100"
                     rel="noopener noreferrer"
                 >
                     <h2 className={`mb-3 text-2xl font-semibold text-gray-800`}>
@@ -104,7 +104,7 @@ export default function Home() {
                 </a>
                 <a
                     href="/orderhistory"
-                    className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100"
+                    className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-green-100"
                     rel="noopener noreferrer"
                 >
                     <h2 className={`mb-3 text-2xl font-semibold text-gray-800`}>

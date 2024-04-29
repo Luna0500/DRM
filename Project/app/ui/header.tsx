@@ -18,7 +18,7 @@ export default function Header() {
                 <Image src={logo} alt="logo" className="w-16 h-16" />
                 
             </a>
-            <a href="/" className="mr-4">
+            <a href="/" className="mr-4 text-2xl font-mono font-serif">
                 ZyCardes
             </a>
             <div className="flex-1 flex justify-center items-center">
