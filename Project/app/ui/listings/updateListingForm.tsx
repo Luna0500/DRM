@@ -47,14 +47,14 @@ const UpdateListingForm = ({ listing }: { listing: Listing; }) => {
 
     if (listing.LST_UserEmail !== userEmail) {
         return (
-            <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-blue-100">
+            <main className="flex min-h-screen flex-col items-center justify-between p-24">
                 <h1 className="text-5xl text-black">You Must Login to Update a Listing!</h1>
             </main>
         );
     }
 
     return (
-        <div className="rounded-lg bg-[#eafae1] border-solid border-2 p-6 overflow-auto">
+        <div className="rounded-lg bg-[#eafae1] border-solid border-2 border-black p-6 overflow-auto">
             <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-10">
                 <div className="mb-4">
                     <input type="text" name="PRD_ID" placeholder="Product ID" value={formData.PRD_ID} onChange={handleChange} className="form-input w-full px-4 py-2 bg-gray-100 border border-black text-left" />
