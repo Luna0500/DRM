@@ -52,7 +52,7 @@ const CreateListingForm = (props: CreateListingFormProps) => {
     };
 
     return (
-        <div className="rounded-lg bg-[#eafae1] flex min-h-screen border-solid border-2 border-black p-6 overflow-auto"> 
+        <div className="rounded-md bg-[#eafae1] min-h-screen border-solid border-2 border-[#858585] p-6 overflow-auto">
             <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-10">
                 <div className="mb-4">
                     <input type="text" name="PRD_ID" placeholder="Product ID" value={formData.PRD_ID} onChange={handleChange} className="form-input w-full px-4 py-2 bg-gray-100 border border-black text-left" />
@@ -74,16 +74,13 @@ const CreateListingForm = (props: CreateListingFormProps) => {
                     <input type="text" name="LST_Location" placeholder="Location" value={formData.LST_Location} onChange={handleChange} className="form-input w-full px-4 py-2 bg-gray-100 border border-black text-left" />
                 </div>
                 <div className="mb-4">
-                    <div className="mb-4 flex justify-between items-center">
                     <select name="LST_Condition" value={formData.LST_Condition} onChange={handleSelectChange} className="form-select w-full px-4 py-2 bg-gray-100 border border-black text-left">
                         <option value="">Select Condition</option>
                         <option value="Near Mint or Better">Near Mint or Better</option>
                         <option value="Lightly Played--Excellent">Lightly Played (Excellent)</option>
                         <option value="Moderately Played--Good">Moderately Played (Very good)</option>
                         <option value="Heavily Played--Poor">Heavily Played (Poor)</option>
-                        </select>
-
-                </div>
+                    </select>
                 </div>
                 <div className="mb-4">
                     <a href="#" onClick={toggleConditionGuide} className="text-blue-500 text-sm">How do I determine the condition of my card?</a>
@@ -158,6 +155,7 @@ const CreateListingForm = (props: CreateListingFormProps) => {
             </form>
         </div>
     );
+
 };
 export default CreateListingForm;
 
