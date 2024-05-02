@@ -66,6 +66,7 @@ export default async function CardDetail({ IDQuery }: { IDQuery: string; }) {
                 {/* Card Information */}
                 <div className="p-4 flex-grow">
                     <h2 className="text-2xl font-bold mb-2">{cardObj.data.name}</h2>
+                    <p className="mb-2"><span className="font-semibold">Product ID:</span> {IDQuery || "Information not available"}</p>
                     <p className="mb-2"><span className="font-semibold">Supertype:</span> {cardObj.data.supertype || "Information not available"}</p>
                     <p className="mb-2"><span className="font-semibold">Subtypes:</span> {cardObj.data.subtypes?.join(', ') || "Information not available"}</p>
                     <p className="mb-2"><span className="font-semibold">HP:</span> {cardObj.data.hp || "Information not available"}</p>

@@ -4,7 +4,7 @@ export interface Listing {
     PRD_ID: string;
     LST_Time: string;
     LST_Status: string;
-    LST_Price: number;
+    LST_Price: string;
     LST_Quantity: number;
     LST_Location: string;
     LST_Condition: string;

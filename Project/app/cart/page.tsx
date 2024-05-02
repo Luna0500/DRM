@@ -4,6 +4,7 @@ import '@/app/cardlist/homePage.css';
 import { fetchCartListingsByCL_Email, fetchListingsByIDs } from '@/app/lib/data';
 import { Listing, CartListing } from '@/app/ui/listings/listingInterfaces';
 import { getServerSession } from 'next-auth';
+import { split } from 'postcss/lib/list';
 
 export default async function Page() {
     const session = await getServerSession();
@@ -30,6 +31,11 @@ export default async function Page() {
         LST_Condition: item.lst_condition,
         LST_ShipOption: item.lst_shipoption
     }));
+    var total = 0;
+    for (let i = 0; i < listings.length; i++) {
+        total += parseFloat(listings[i].LST_Price.substring(1)) * listings[i].LST_Quantity
+    }
+    parseFloat
     if (!session) {
         return (
             <main className="colorbg flex min-h-screen flex-col items-center justify-between p-24 ">
@@ -42,6 +48,7 @@ export default async function Page() {
 
             <h1 className="text-5xl text-black">Shopping Cart</h1>     
             <DisplayCartListings listings={listings} userEmail={userEmail} />
+            <h1 className="text-5xl text-black">Total: ${ total }</h1> 
             <CartBuyButton listings={listings} userEmail={userEmail} />
       
         </main>
