@@ -1,0 +1,21 @@
+For our testing we used a lot of different testing methods. 
+
+Unit Testing- For unit testing we didn’t do much of it ourselves because it was all done within the Next.js framework. This showed that we were able to figure out what wasn't
+working and finding bugs easily, creating an easy way to fix those problems. Adding small code at a time allowed us to see what errors were being shown and where.
+
+User Testing- We asked 12 different people to test out our website to figure out what could be improved on through feedback.
+We asked people that have cards and have used other websites to view, buy and sell cards. We also asked people who didn't know much about what this e-commerce website did.
+Some results we got from this were that it was easy to see where to sign up and click on different parts of the website. We received feedback involving too many different colors.
+We also received feedback that our homepage didn't have much going on so when we added a hero pic they really enjoyed that. We also learned that people who didn't know much about 
+e-commerce websites weren't confused as to where to go for certain things such as viewing cards and details. We also got good feedback saying that it was easy to use because it 
+was direct and didn't have too many confusing details.
+
+Integration and System Testing- We made sure that all modules correctly worked with one another through user interface testing, use-scenario testing, and data-flow testing.
+From these 2 different testings we were able to view how our website was doing. We used integration testing by viewing our vercel application and making sure that was running correctly with 
+next.js and within visual studio.
+
+Prepared for alpha acceptance testing- We would get regular feedback from our project sponsor. Our project sponsor would tell us what he would like to see in the website and what could
+be made better. We would regularly show him our website and asked for feedback involving what could be better and what he would maybe prefer as someone who would be using the website. 
+Some feedback we got was that there were too many different shades of green once we had gone to those chosen colors, so we fixed that. We were also told that he would like to see an additive
+search and search tags which we implemented. Another thing he had said was that he aslo said that our home screen didn't have a way to appeal to him, so we fixed that. 
+
