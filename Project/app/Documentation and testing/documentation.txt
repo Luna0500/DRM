@@ -1,0 +1,9 @@
+In our project documentation, we crafted use cases for every function within our website, ensuring a comprehensive understanding of system functionalities.
+Each use case delves into preconditions, normal conditions, and postconditions, contributing the operational flow of the system. 
+By detailing prerequisites, expected processes, and outcomes, we establish clarity for developers. 
+Additionally, our documentation includes a detailed depiction of the physical process model, encapsulating the operational flow within the system. 
+There's also the physical data model, outlining the structural organization of the database system.
+
+On the user end, we aimed to enhance user experience by facilitating informed decision-making. 
+To achieve this, we integrated a user-friendly table, aiding users in assessing the condition of their card. 
+This table serves as a practical tool, empowering users to make informed choices tailored to their specific needs and circumstances. 
