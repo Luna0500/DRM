@@ -17,5 +17,5 @@ next.js and within visual studio.
 Prepared for alpha acceptance testing- We would get regular feedback from our project sponsor. Our project sponsor would tell us what he would like to see in the website and what could
 be made better. We would regularly show him our website and asked for feedback involving what could be better and what he would maybe prefer as someone who would be using the website. 
 Some feedback we got was that there were too many different shades of green once we had gone to those chosen colors, so we fixed that. We were also told that he would like to see an additive
-search and search tags which we implemented. Another thing he had said was that he aslo said that our home screen didn't have a way to appeal to him, so we fixed that. 
+search and search tags which we implemented. Another thing he had said was that he also said that our home screen didn't have a way to appeal to him, so we fixed that. 
 
